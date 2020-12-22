@@ -1,0 +1,10 @@
+{% include 'base.html.twig' %}
+
+{% block body %}
+    <h1>Hallo</h1>
+    {% for var in mijnvariabele %}
+        {% for var2 in var %}
+            {{ var2 }}
+        {% endfor %}
+    {% endfor %}
+{% endblock %}
