@@ -7,12 +7,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/test")
+ * @Route("/")
+ * Class HomeController
  */
-class TestController extends AbstractController
+class HomeController extends AbstractController
 {
     /**
-     * @Route("/", methods={"GET"})
+     * @Route("/")
      * @Template()
      */
     public function index(): array
@@ -22,15 +23,4 @@ class TestController extends AbstractController
         ];
     }
 
-    /**
-     * @Route("/bekijken", methods={"GET"})
-     * @Template()
-     */
-    public function view(): array
-    {
-
-        return [
-
-        ];
-    }
 }
