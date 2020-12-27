@@ -1,0 +1,7 @@
+parameters:
+  hash: $2y$12$/x9OnL8PtUyfq4XF4.NzlOvZuUCJiwmRfY2Sbu6FbWAHVDZPwIyEq
+App\Entity\User:
+  user_daryl:
+    email: daryl@test.nl
+    username: darylholling
+    password: <{hash}>

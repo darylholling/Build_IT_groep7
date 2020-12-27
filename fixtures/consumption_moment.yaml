@@ -1,0 +1,4 @@
+App\Entity\ConsumptionMoment:
+  consumption_1:
+    user: '@user_daryl'
+    dateTime: <dateTime()>
