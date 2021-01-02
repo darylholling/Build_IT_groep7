@@ -33,7 +33,7 @@ class ConsumptionMomentController extends AbstractController
     }
 
     /**
-     * @Route("/nieuw", methods={"GET"})
+     * @Route("/nieuw", methods={"GET", "POST"})
      * @Template()
      * @param Request $request
      * @return array|RedirectResponse
@@ -71,7 +71,7 @@ class ConsumptionMomentController extends AbstractController
     {
         $this->denyAccessUnlessGranted('edit', $consumptionMoment);
 
-        $form = $this->createForm(ContactType::class, $consumptionMoment);
+        $form = $this->createForm(ConsumptionMomentType::class, $consumptionMoment);
 
         $form->handleRequest($request);
 

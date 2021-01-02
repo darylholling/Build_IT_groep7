@@ -10,25 +10,34 @@
                         <tr>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Gebruiker
+                                Url
                             </th>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Tijd
+                                &nbsp;
                             </th>
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                        {% for consumptionMoment in consumptionMoments %}
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ consumptionMoment.user.email }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ consumptionMoment.dateTime|date("H:i") }}
-                                </td>
-                            </tr>
-                        {% endfor %}
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                {{ ardiuno.url }}
+                            </td>
+                            <td>
+                                <div class="flex justify-end">
+                                    <a href="{{ path('app_ardiuno_edit', {
+                                        ardiuno: ardiuno.id
+                                    }) }}" class="mr-2">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="{{ path('app_ardiuno_delete', {
+                                        ardiuno: ardiuno.id
+                                    }) }}" class="mr-2">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>

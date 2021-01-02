@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Ardiuno;
-use App\Form\ContactType;
+use App\Form\ArdiunoType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -32,7 +32,7 @@ class ArdiunoController extends AbstractController
     }
 
     /**
-     * @Route("/nieuw", methods={"GET"})
+     * @Route("/nieuw", methods={"GET", "POST"})
      * @Template()
      * @param Request $request
      * @return array|RedirectResponse
@@ -42,7 +42,7 @@ class ArdiunoController extends AbstractController
         $ardiuno = new Ardiuno();
         $ardiuno->setUser($this->getUser());
 
-        $form = $this->createForm(Ardiuno::class, $ardiuno);
+        $form = $this->createForm(ArdiunoType::class, $ardiuno);
 
         $form->handleRequest($request);
 
@@ -69,7 +69,7 @@ class ArdiunoController extends AbstractController
     {
         $this->denyAccessUnlessGranted('edit', $ardiuno);
 
-        $form = $this->createForm(ContactType::class, $ardiuno);
+        $form = $this->createForm(ArdiunoType::class, $ardiuno);
 
         $form->handleRequest($request);
 

@@ -47,6 +47,10 @@
                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                                 Consumptie momenten
                             </a>
+                            <a href="{{ path('app_ardiuno_index') }}"
+                               class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                                Ardiuno
+                            </a>
                             <a href="{{ path('app_consumption_index') }}"
                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                                 Consumpties
@@ -63,14 +67,20 @@
             <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
             {% if app.user %}
                 <a href="{{ path('app_contact_index') }}"
-                   class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contacten
+                   class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                    Contacten
                 </a>
                 <a href="{{ path('app_consumptionmoment_index') }}"
-                   class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Consumptie
-                    momenten
+                   class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                    Consumptie momenten
+                </a>
+                <a href="{{ path('app_ardiuno_index') }}"
+                   class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                    Ardiuno
                 </a>
                 <a href="{{ path('app_consumption_index') }}"
-                   class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Consumpties
+                   class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                    Consumpties
                 </a>
             {% endif %}
         </div>

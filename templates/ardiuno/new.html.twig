@@ -1,5 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="flex flex-col w-1/2 mx-auto pt-8">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="pb-4">
+                    <h2 class="flex-1 text-xl font-semibold">Nieuwe ardiuno</h2>
+                </div>
+                {{ form_start(form) }}
 
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg pb-4">
+                    {{ form_row(form.url) }}
+                </div>
+
+                <div class="flex pt-4">
+                    <div class="ml-auto">
+                        <a href="{{ path('app_ardiuno_index') }}"
+                           class="btn bg-gray-500 py-2 px-4 text-white rounded mr-2">
+                            Terug
+                        </a>
+                        <button type="submit" class="btn bg-green-500 py-2 px-4 text-white rounded ml-2">
+                            Opslaan
+                        </button>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

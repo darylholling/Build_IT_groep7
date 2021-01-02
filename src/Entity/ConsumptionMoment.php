@@ -52,9 +52,9 @@ class ConsumptionMoment
     }
 
     /**
-     * @return DateTime
+     * @return DateTime|null
      */
-    public function getDateTime(): DateTime
+    public function getDateTime(): ?DateTime
     {
         return $this->dateTime;
     }
