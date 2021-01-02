@@ -387,7 +387,7 @@
 {%- endblock form_label_class %}
 
 {%- block input_class -%}
-    {% if form.vars.errors|length %}border-red border-1{% endif %} appearance-none form-input block w-full md:w-full bg-gray-100
+    {% if form.vars.errors|length %}border-red border-1{% endif %} block border border-grey-light w-full p-3 rounded mb-4
 {%- endblock input_class -%}
 
 {%- block textarea_class -%}
