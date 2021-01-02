@@ -1,7 +1,7 @@
 App\Entity\Consumption:
   contact_daryl_1:
     user: '@user_daryl'
-    time: <dateTime()>
+    dateTime: <dateTime()>
     taken: 0
     contactsNotified: 0
 

@@ -1,0 +1,98 @@
+<?php
+
+namespace App\Controller;
+
+use App\Entity\ConsumptionMoment;
+use App\Form\ConsumptionMomentType;
+use App\Form\ContactType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
+
+/**
+ * Class ConsumptionMomentController
+ * @Route("/consumptie-momenten")
+ */
+class ConsumptionMomentController extends AbstractController
+{
+    /**
+     * @Route("/", methods={"GET"})
+     * @Template()
+     */
+    public function index(): array
+    {
+        $consumptionMoments = $this->getDoctrine()->getRepository(ConsumptionMoment::class)->findBy([
+            'user' => $this->getUser()
+        ]);
+
+        return [
+            'consumptionMoments' => $consumptionMoments
+        ];
+    }
+
+    /**
+     * @Route("/nieuw", methods={"GET"})
+     * @Template()
+     * @param Request $request
+     * @return array|RedirectResponse
+     */
+    public function new(Request $request)
+    {
+        $consumptionMoment = new ConsumptionMoment();
+        $consumptionMoment->setUser($this->getUser());
+
+        $form = $this->createForm(ConsumptionMomentType::class, $consumptionMoment);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $this->getDoctrine()->getManager()->persist($consumptionMoment);
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('app_consumptionmoment_index');
+        }
+
+        return [
+            'form' => $form->createView()
+        ];
+    }
+
+    /**
+     * @Route("/{consumptionMoment}/bewerken", methods={"GET", "POST"})
+     * @Template()
+     * @param ConsumptionMoment $consumptionMoment
+     * @param Request $request
+     * @return array|RedirectResponse
+     */
+    public function edit(ConsumptionMoment $consumptionMoment, Request $request)
+    {
+        $this->denyAccessUnlessGranted('edit', $consumptionMoment);
+
+        $form = $this->createForm(ContactType::class, $consumptionMoment);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('app_consumptionmoment_index');
+        }
+
+        return [
+            'form' => $form->createView()
+        ];
+    }
+
+    /**
+     * @Route("/{consumptionMoment}/verwijderen", methods={"GET", "DELETE"})
+     * @param ConsumptionMoment $consumptionMoment
+     */
+    public function delete(ConsumptionMoment $consumptionMoment)
+    {
+        $this->denyAccessUnlessGranted('delete', $consumptionMoment);
+
+    }
+}

@@ -29,6 +29,13 @@ class ConsumptionMoment
     private $dateTime;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $active = true;
+
+    /**
      * @return User
      */
     public function getUser(): User
@@ -58,5 +65,21 @@ class ConsumptionMoment
     public function setDateTime(DateTime $dateTime): void
     {
         $this->dateTime = $dateTime;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActive(): bool
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param bool $active
+     */
+    public function setActive(bool $active): void
+    {
+        $this->active = $active;
     }
 }

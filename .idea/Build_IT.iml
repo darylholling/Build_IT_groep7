@@ -113,6 +113,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/comparator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs/deep-copy" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nelmio/alice" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/messenger" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/padam87/cron-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

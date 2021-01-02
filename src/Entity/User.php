@@ -20,6 +20,13 @@ class User implements UserInterface
     use IdTrait;
 
     /**
+     * @var Ardiuno|null
+     *
+     * @ORM\OneToOne(targetEntity="App\Entity\Ardiuno")
+     */
+    private $ardiuno;
+
+    /**
      * @var Consumption[]|Collection
      *
      * @ORM\OneToMany(targetEntity="App\Entity\Consumption", mappedBy="user")
@@ -256,5 +263,21 @@ class User implements UserInterface
         if ($this->consumptions->contains($consumption)) {
             $this->consumptions->removeElement($consumption);
         }
+    }
+
+    /**
+     * @return Ardiuno|null
+     */
+    public function getArdiuno(): ?Ardiuno
+    {
+        return $this->ardiuno;
+    }
+
+    /**
+     * @param Ardiuno|null $ardiuno
+     */
+    public function setArdiuno(?Ardiuno $ardiuno): void
+    {
+        $this->ardiuno = $ardiuno;
     }
 }

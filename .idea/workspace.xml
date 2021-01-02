@@ -4,29 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f306049-fcd3-43c9-8fdc-b468863d4b20" name="Default Changelist" comment="register and login">
-      <change afterPath="$PROJECT_DIR$/fixtures/consumption.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fixtures/consumption_moment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fixtures/contact.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fixtures/user.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Consumption.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/ConsumptionMoment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Contact.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traits/IdTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/form/theme.html.twig" afterDir="false" />
+    <list default="true" id="2f306049-fcd3-43c9-8fdc-b468863d4b20" name="Default Changelist" comment="uncommited files">
+      <change afterPath="$PROJECT_DIR$/config/packages/messenger.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fixtures/ardiuno.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Command/CreateConsumptionCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ArdiunoController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ConsumptionController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ConsumptionMomentController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ContactController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Ardiuno.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EventListener/CreateConsumptionNotificationListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/ConsumptionMomentType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/ContactType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Helper/DelayStampHelper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Manager/ConsumptionManager.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Message/ConsumptionNotificationMessage.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Message/NotifyContactsMessage.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MessageHandler/AbstractMessageHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MessageHandler/ConsumptionNotificationHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MessageHandler/NotifyContactsHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Security/ContactVoter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Twig/DefaultExtension.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ardiuno/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ardiuno/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ardiuno/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/consumption/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/consumption_moment/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/consumption_moment/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/consumption_moment/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/contact/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/contact/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/contact/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.dist" beforeDir="false" afterPath="$PROJECT_DIR$/.env.dist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Build_IT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Build_IT.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixtures/consumption.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/fixtures/consumption.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixtures/user.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/fixtures/user.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml.dist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Consumption.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Consumption.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/ConsumptionMoment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ConsumptionMoment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/test/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/test/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form/theme.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/theme.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +187,8 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
       <path value="$PROJECT_DIR$/vendor/nelmio/alice" />
+      <path value="$PROJECT_DIR$/vendor/symfony/messenger" />
+      <path value="$PROJECT_DIR$/vendor/padam87/cron-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lcN9bHOf8BlWi8LdqQDX2ONHMU" />
@@ -176,6 +203,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Controller" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -190,6 +218,13 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\src\Controller" />
+      <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\templates" />
+      <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\src\MessageHandler" />
+      <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\src\Form" />
+      <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\templates\contact" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\src\Trait" />
     </key>
@@ -208,7 +243,14 @@
       <workItem from="1608574715757" duration="7035000" />
       <workItem from="1608655207932" duration="4725000" />
       <workItem from="1608886436810" duration="1940000" />
-      <workItem from="1609061596601" duration="5141000" />
+      <workItem from="1609061596601" duration="6019000" />
+      <workItem from="1609145451459" duration="1369000" />
+      <workItem from="1609233534588" duration="6392000" />
+      <workItem from="1609265440585" duration="2586000" />
+      <workItem from="1609322260957" duration="5636000" />
+      <workItem from="1609392664332" duration="10038000" />
+      <workItem from="1609515775296" duration="1346000" />
+      <workItem from="1609580472601" duration="7772000" />
     </task>
     <task id="LOCAL-00001" summary="removed .env files added gitignore">
       <created>1608228003869</created>
@@ -217,7 +259,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608228003869</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first entities + fixtures + form theme.">
+      <created>1609094423520</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609094423520</updated>
+    </task>
+    <task id="LOCAL-00003" summary="uncommited files">
+      <created>1609094495020</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609094495020</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,6 +293,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="removed .env files added gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed .env files added gitignore" />
+    <MESSAGE value="first entities + fixtures + form theme." />
+    <MESSAGE value="uncommited files" />
+    <option name="LAST_COMMIT_MESSAGE" value="uncommited files" />
   </component>
 </project>

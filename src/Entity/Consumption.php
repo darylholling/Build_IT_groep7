@@ -26,21 +26,28 @@ class Consumption
      *
      * @ORM\Column(type="datetime", nullable=false)
      */
-    private $time;
+    private $dateTime;
 
     /**
      * @var bool
      *
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $taken;
+    private $ardiunoNotified = false;
 
     /**
      * @var bool
      *
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $contactsNotified;
+    private $taken = false;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $contactsNotified = false;
 
     /**
      * @return User
@@ -61,17 +68,33 @@ class Consumption
     /**
      * @return DateTime
      */
-    public function getTime(): DateTime
+    public function getDateTime(): DateTime
     {
-        return $this->time;
+        return $this->dateTime;
     }
 
     /**
-     * @param DateTime $time
+     * @param DateTime $dateTime
      */
-    public function setTime(DateTime $time): void
+    public function setDateTime(DateTime $dateTime): void
     {
-        $this->time = $time;
+        $this->dateTime = $dateTime;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isArdiunoNotified(): bool
+    {
+        return $this->ardiunoNotified;
+    }
+
+    /**
+     * @param bool $ardiunoNotified
+     */
+    public function setArdiunoNotified(bool $ardiunoNotified): void
+    {
+        $this->ardiunoNotified = $ardiunoNotified;
     }
 
     /**
