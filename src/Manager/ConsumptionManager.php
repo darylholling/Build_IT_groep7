@@ -86,14 +86,16 @@ class ConsumptionManager
         );
 
         //TODO check if below is error proof
+        $consumption->setResponseStatusCode($response->getStatusCode());
         if ($response->getStatusCode() === Response::HTTP_OK) {
             $consumption->setArdiunoNotified(true);
 
-            $this->messageBus->dispatch(new Envelope(
-                new NotifyContactsMessage($consumption->getId()), [
-                    (new DelayStampHelper)(new DateTime('+15 minute'))
-                ]
-            ));
+            $this->messageBus->dispatch(new NotifyContactsMessage($consumption->getId()));
+//            $this->messageBus->dispatch(new Envelope(
+//                new NotifyContactsMessage($consumption->getId()), [
+//                    (new DelayStampHelper)(new DateTime('+15 minute'))
+//                ]
+//            ));
         }
 
         $this->entityManager->flush();

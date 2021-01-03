@@ -5,20 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f306049-fcd3-43c9-8fdc-b468863d4b20" name="Default Changelist" comment="Work in progress">
-      <change afterPath="$PROJECT_DIR$/src/Form/ArdiunoType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Security/ArdiunoVoter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Security/ConsumptionMomentVoter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/email/notify_contact.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ArdiunoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArdiunoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ConsumptionMomentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConsumptionMomentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ConsumptionMoment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ConsumptionMoment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ardiuno/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ardiuno/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ardiuno/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ardiuno/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ardiuno/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ardiuno/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/consumption_moment/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/consumption_moment/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/consumption_moment/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/consumption_moment/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/consumption_moment/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/consumption_moment/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/messenger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/messenger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixtures/contact.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/fixtures/contact.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/CreateConsumptionCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/CreateConsumptionCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Consumption.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Consumption.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventListener/CreateConsumptionNotificationListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/CreateConsumptionNotificationListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ContactType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ContactType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Manager/ConsumptionManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/ConsumptionManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MessageHandler/NotifyContactsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessageHandler/NotifyContactsHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +216,8 @@
       <workItem from="1609322260957" duration="5636000" />
       <workItem from="1609392664332" duration="10038000" />
       <workItem from="1609515775296" duration="1346000" />
-      <workItem from="1609580472601" duration="9002000" />
+      <workItem from="1609580472601" duration="12719000" />
+      <workItem from="1609673359114" duration="6746000" />
     </task>
     <task id="LOCAL-00001" summary="removed .env files added gitignore">
       <created>1608228003869</created>
@@ -247,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609600833491</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Work in progress">
+      <created>1609602010825</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1609602010825</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

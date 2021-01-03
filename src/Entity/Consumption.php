@@ -29,6 +29,13 @@ class Consumption
     private $dateTime;
 
     /**
+     * @var string|null
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $responseStatusCode;
+
+    /**
      * @var bool
      *
      * @ORM\Column(type="boolean", nullable=true)
@@ -127,5 +134,21 @@ class Consumption
     public function setContactsNotified(bool $contactsNotified): void
     {
         $this->contactsNotified = $contactsNotified;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getResponseStatusCode(): ?string
+    {
+        return $this->responseStatusCode;
+    }
+
+    /**
+     * @param string|null $responseStatusCode
+     */
+    public function setResponseStatusCode(?string $responseStatusCode): void
+    {
+        $this->responseStatusCode = $responseStatusCode;
     }
 }

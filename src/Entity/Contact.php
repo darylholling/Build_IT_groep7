@@ -24,6 +24,14 @@ class Contact
     private $email = '';
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255, nullable=false)
+     * @Assert\NotBlank()
+     */
+    private $salutation = '';
+
+    /**
      * @var User
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="contacts")
@@ -60,5 +68,21 @@ class Contact
     public function setUser(User $user): void
     {
         $this->user = $user;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSalutation(): string
+    {
+        return $this->salutation;
+    }
+
+    /**
+     * @param string $salutation
+     */
+    public function setSalutation(string $salutation): void
+    {
+        $this->salutation = $salutation;
     }
 }
