@@ -23,6 +23,7 @@ security:
             logout:
                 path: /uitloggen
                 target: app_home_index
+            access_denied_handler: App\Security\AccessDeniedHandler
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication

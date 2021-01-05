@@ -43,6 +43,6 @@ class ConsumptionNotificationHandler extends AbstractMessageHandler
             throw new RuntimeException(sprintf('Consumption with id %s can not be found', $consumptionNotificationMessage->getConsumptionId()));
         }
 
-        $this->consumptionManager->sendArdiunoRequest($consumption);
+        $this->consumptionManager->sendArduinoRequest($consumption);
     }
 }

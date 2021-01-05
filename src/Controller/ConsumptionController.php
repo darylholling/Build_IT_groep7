@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Consumption;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -28,5 +29,20 @@ class ConsumptionController extends AbstractController
         return [
             'consumptions' => $consumptions
         ];
+    }
+
+    /**
+     * @Route("/{consumption}/verwijderen", methods={"GET", "DELETE"})
+     * @param Consumption $consumption
+     * @return RedirectResponse
+     */
+    public function delete(Consumption $consumption): RedirectResponse
+    {
+        $this->denyAccessUnlessGranted('delete', $consumption);
+
+        $this->getDoctrine()->getManager()->remove($consumption);
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('app_consumption_index');
     }
 }

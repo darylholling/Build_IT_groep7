@@ -40,7 +40,7 @@ class Consumption
      *
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $ardiunoNotified = false;
+    private $arduinoNotified = false;
 
     /**
      * @var bool
@@ -91,17 +91,17 @@ class Consumption
     /**
      * @return bool
      */
-    public function isArdiunoNotified(): bool
+    public function isArduinoNotified(): bool
     {
-        return $this->ardiunoNotified;
+        return $this->arduinoNotified;
     }
 
     /**
-     * @param bool $ardiunoNotified
+     * @param bool $arduinoNotified
      */
-    public function setArdiunoNotified(bool $ardiunoNotified): void
+    public function setArduinoNotified(bool $arduinoNotified): void
     {
-        $this->ardiunoNotified = $ardiunoNotified;
+        $this->arduinoNotified = $arduinoNotified;
     }
 
     /**

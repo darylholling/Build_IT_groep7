@@ -2,16 +2,15 @@
 
 namespace App\Security;
 
-use App\Entity\Ardiuno;
-use App\Entity\Contact;
+use App\Entity\Consumption;
 use App\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
 /**
- * Class ArdiunoVoter
+ * Class ConsumptionVoter
  */
-class ArdiunoVoter extends Voter
+class ConsumptionVoter extends Voter
 {
     /**
      * @param string $attribute
@@ -20,7 +19,7 @@ class ArdiunoVoter extends Voter
      */
     protected function supports($attribute, $subject): bool
     {
-        if (!$subject instanceof Ardiuno) {
+        if (!$subject instanceof Consumption) {
             return false;
         }
 
@@ -35,13 +34,15 @@ class ArdiunoVoter extends Voter
      */
     protected function voteOnAttribute($attribute, $subject, TokenInterface $token): bool
     {
-        $user = $token->getUser();
+        $activeUser = $token->getUser();
 
-        if (!$user instanceof User) {
+        if (!$activeUser instanceof User) {
             return false;
         }
 
-        if ($subject->getUser() !== $user) {
+        $subjectUser = $subject->getUser();
+
+        if ($subjectUser !== $activeUser) {
             return false;
         }
 

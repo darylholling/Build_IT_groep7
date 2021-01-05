@@ -2,16 +2,16 @@
 
 namespace App\Form;
 
-use App\Entity\Ardiuno;
+use App\Entity\Arduino;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class ArdiunoType
+ * Class ArduinoType
  */
-class ArdiunoType extends AbstractType
+class ArduinoType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -31,7 +31,7 @@ class ArdiunoType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Ardiuno::class
+            'data_class' => Arduino::class
         ]);
     }
 }

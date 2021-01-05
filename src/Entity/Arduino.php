@@ -4,12 +4,13 @@ namespace App\Entity;
 
 use App\Traits\IdTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Class Ardiuno
+ * Class Arduino
  * @ORM\Entity()
  */
-class Ardiuno
+class Arduino
 {
     use IdTrait;
 
@@ -17,13 +18,14 @@ class Ardiuno
      * @var string
      *
      * @ORM\Column(type="string", nullable=false)
+     * @Assert\NotBlank(message="Url mag niet leeg zijn")
      */
-    private $url;
+    private $url = '';
 
     /**
      * @var User
      *
-     * @ORM\OneToOne(targetEntity="App\Entity\User")
+     * @ORM\OneToOne(targetEntity="App\Entity\User", mappedBy="arduino")
      */
     private $user;
 

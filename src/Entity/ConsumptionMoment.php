@@ -36,9 +36,9 @@ class ConsumptionMoment
     private $active = true;
 
     /**
-     * @return User
+     * @return User|null
      */
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }

@@ -5,17 +5,13 @@
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="flex pb-4">
-                    <h2 class="flex-1 text-xl font-semibold">Consumptie momenten</h2>
-                    {% if app.user.arduino %}
-
+                    <h2 class="flex-1 text-xl font-semibold">Arduino's</h2>
                     <div class="ml-auto">
-                        <a href="{{ path('app_consumptionmoment_new') }}"
-                           class="btn bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
-                            <i class="fas fa-plus mr-2"></i>Consumptiemoment toevoegen
+                        <a href="{{ path('app_arduino_new') }}"
+                           class="btn bg-green-500 text-white py-2 px-4 rounded">
+                            <i class="fas fa-plus mr-2"></i>Arduino toevoegen
                         </a>
                     </div>
-                    {% endif %}
-
                 </div>
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                     <table class="min-w-full divide-y divide-gray-200">
@@ -23,11 +19,7 @@
                         <tr>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Gebruiker
-                            </th>
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Tijd
+                                Url
                             </th>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -36,30 +28,31 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                        {% for consumptionMoment in consumptionMoments %}
-                            <tr>
+                        <tr>
+                            {% if arduino %}
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ consumptionMoment.user.email }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ consumptionMoment.dateTime|date("H:i") }}
+                                    {{ arduino.url }}
                                 </td>
                                 <td>
                                     <div class="flex justify-end">
-                                        <a href="{{ path('app_consumptionmoment_edit', {
-                                            consumptionMoment: consumptionMoment.id
+                                        <a href="{{ path('app_arduino_edit', {
+                                            arduino: arduino.id
                                         }) }}" class="mr-2">
-                                            <i class="fas fa-edit hover:text-green-500"></i>
+                                            <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="{{ path('app_consumptionmoment_delete', {
-                                            consumptionMoment: consumptionMoment.id
+                                        <a href="{{ path('app_arduino_delete', {
+                                            arduino: arduino.id
                                         }) }}" class="mr-2" onclick="return confirm('Wilt u het echt verwijderen?')">
-                                            <i class="fas fa-trash hover:text-red-500"></i>
+                                            <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
                                 </td>
-                            </tr>
-                        {% endfor %}
+                            {% else %}
+                                <td>
+                                    <i>Er is geen bestaande arduino.</i>
+                                </td>
+                            {% endif %}
+                        </tr>
                         </tbody>
                     </table>
                 </div>

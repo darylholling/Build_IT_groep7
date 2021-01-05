@@ -40,6 +40,9 @@ class ContactController extends AbstractController
     public function new(Request $request)
     {
         $contact = new Contact();
+
+        $this->denyAccessUnlessGranted('new', $contact);
+
         $contact->setUser($this->getUser());
 
         $form = $this->createForm(ContactType::class, $contact);
@@ -88,10 +91,15 @@ class ContactController extends AbstractController
     /**
      * @Route("/{contact}/verwijderen", methods={"GET", "DELETE"})
      * @param Contact $contact
+     * @return RedirectResponse
      */
-    public function delete(Contact $contact)
+    public function delete(Contact $contact): RedirectResponse
     {
         $this->denyAccessUnlessGranted('delete', $contact);
 
+        $this->getDoctrine()->getManager()->remove($contact);
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('app_contact_index');
     }
 }

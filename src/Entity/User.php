@@ -20,11 +20,11 @@ class User implements UserInterface
     use IdTrait;
 
     /**
-     * @var Ardiuno|null
+     * @var Arduino|null
      *
-     * @ORM\OneToOne(targetEntity="App\Entity\Ardiuno")
+     * @ORM\OneToOne(targetEntity="App\Entity\Arduino", inversedBy="user")
      */
-    private $ardiuno;
+    private $arduino;
 
     /**
      * @var Consumption[]|Collection
@@ -266,18 +266,18 @@ class User implements UserInterface
     }
 
     /**
-     * @return Ardiuno|null
+     * @return Arduino|null
      */
-    public function getArdiuno(): ?Ardiuno
+    public function getArduino(): ?Arduino
     {
-        return $this->ardiuno;
+        return $this->arduino;
     }
 
     /**
-     * @param Ardiuno|null $ardiuno
+     * @param Arduino|null $arduino
      */
-    public function setArdiuno(?Ardiuno $ardiuno): void
+    public function setArduino(?Arduino $arduino): void
     {
-        $this->ardiuno = $ardiuno;
+        $this->arduino = $arduino;
     }
 }

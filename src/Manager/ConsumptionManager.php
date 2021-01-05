@@ -54,6 +54,7 @@ class ConsumptionManager
     {
         $qb = $this->entityManager->getRepository(User::class)->createQueryBuilder('user');
         $qb->join('user.consumptionMoments', 'consumptionMoment');
+        $qb->join('user.arduino', 'arduino');
         $qb->andWhere("consumptionMoment.active = '1'");
 
         $results = $qb->getQuery()->getResult();
@@ -75,16 +76,16 @@ class ConsumptionManager
      * @param Consumption $consumption
      * @throws TransportExceptionInterface
      */
-    public function sendArdiunoRequest(Consumption $consumption): void
+    public function sendArduinoRequest(Consumption $consumption): void
     {
         $response = $this->httpClient->request(
             'GET',
-            $consumption->getUser()->getArdiuno()->getUrl()
+            $consumption->getUser()->getArduino()->getUrl()
         );
 
         //TODO check if below is error proof
         if ($response->getStatusCode() === Response::HTTP_OK) {
-            $consumption->setArdiunoNotified(true);
+            $consumption->setArduinoNotified(true);
 
             $this->messageBus->dispatch(new NotifyContactsMessage($consumption->getId()));
 //            $this->messageBus->dispatch(new Envelope(
@@ -92,10 +93,9 @@ class ConsumptionManager
 //                    (new DelayStampHelper)(new DateTime('+15 minute'))
 //                ]
 //            ));
+            $consumption->setResponseStatusCode($response->getStatusCode());
+
+            $this->entityManager->flush();
         }
-
-        $consumption->setResponseStatusCode($response->getStatusCode());
-
-        $this->entityManager->flush();
     }
 }

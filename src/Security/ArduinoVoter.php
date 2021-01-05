@@ -2,15 +2,16 @@
 
 namespace App\Security;
 
+use App\Entity\Arduino;
 use App\Entity\Contact;
 use App\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
 /**
- * Class ContactVoter
+ * Class ArduinoVoter
  */
-class ContactVoter extends Voter
+class ArduinoVoter extends Voter
 {
     /**
      * @param string $attribute
@@ -19,7 +20,7 @@ class ContactVoter extends Voter
      */
     protected function supports($attribute, $subject): bool
     {
-        if (!$subject instanceof Contact) {
+        if (!$subject instanceof Arduino) {
             return false;
         }
 
@@ -40,10 +41,8 @@ class ContactVoter extends Voter
             return false;
         }
 
-        if ($attribute !== 'new') {
-            if ($subject->getUser() !== $user) {
-                return false;
-            }
+        if ($subject->getUser() !== $user) {
+            return false;
         }
 
         return true;

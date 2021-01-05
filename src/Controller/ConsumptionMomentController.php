@@ -41,6 +41,8 @@ class ConsumptionMomentController extends AbstractController
     public function new(Request $request)
     {
         $consumptionMoment = new ConsumptionMoment();
+
+        $this->denyAccessUnlessGranted('new', $consumptionMoment);
         $consumptionMoment->setUser($this->getUser());
 
         $form = $this->createForm(ConsumptionMomentType::class, $consumptionMoment);
@@ -89,10 +91,15 @@ class ConsumptionMomentController extends AbstractController
     /**
      * @Route("/{consumptionMoment}/verwijderen", methods={"GET", "DELETE"})
      * @param ConsumptionMoment $consumptionMoment
+     * @return RedirectResponse
      */
-    public function delete(ConsumptionMoment $consumptionMoment)
+    public function delete(ConsumptionMoment $consumptionMoment): RedirectResponse
     {
         $this->denyAccessUnlessGranted('delete', $consumptionMoment);
 
+        $this->getDoctrine()->getManager()->remove($consumptionMoment);
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('app_contact_index');
     }
 }

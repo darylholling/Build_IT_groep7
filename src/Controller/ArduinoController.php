@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Ardiuno;
-use App\Form\ArdiunoType;
+use App\Entity\Arduino;
+use App\Form\ArduinoType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -12,9 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class ConsumptionMomentController
- * @Route("/mijn-ardiuno")
+ * @Route("/mijn-arduino")
  */
-class ArdiunoController extends AbstractController
+class ArduinoController extends AbstractController
 {
     /**
      * @Route("/", methods={"GET"})
@@ -22,12 +22,8 @@ class ArdiunoController extends AbstractController
      */
     public function index(): array
     {
-        $ardiuno = $this->getDoctrine()->getRepository(Ardiuno::class)->findOneBy([
-            'user' => $this->getUser()
-        ]);
-
         return [
-            'ardiuno' => $ardiuno
+            'arduino' => $this->getUser()->getArduino()
         ];
     }
 
@@ -39,18 +35,18 @@ class ArdiunoController extends AbstractController
      */
     public function new(Request $request)
     {
-        $ardiuno = new Ardiuno();
-        $ardiuno->setUser($this->getUser());
+        $arduino = new Arduino();
+        $this->getUser()->setArduino($arduino);
 
-        $form = $this->createForm(ArdiunoType::class, $ardiuno);
+        $form = $this->createForm(ArduinoType::class, $arduino);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->persist($ardiuno);
+            $this->getDoctrine()->getManager()->persist($arduino);
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('app_ardiuno_index');
+            return $this->redirectToRoute('app_arduino_index');
         }
 
         return [
@@ -59,24 +55,24 @@ class ArdiunoController extends AbstractController
     }
 
     /**
-     * @Route("/{ardiuno}/bewerken", methods={"GET", "POST"})
+     * @Route("/{arduino}/bewerken", methods={"GET", "POST"})
      * @Template()
-     * @param Ardiuno $ardiuno
+     * @param Arduino $arduino
      * @param Request $request
      * @return array|RedirectResponse
      */
-    public function edit(Ardiuno $ardiuno, Request $request)
+    public function edit(Arduino $arduino, Request $request)
     {
-        $this->denyAccessUnlessGranted('edit', $ardiuno);
+        $this->denyAccessUnlessGranted('edit', $arduino);
 
-        $form = $this->createForm(ArdiunoType::class, $ardiuno);
+        $form = $this->createForm(ArduinoType::class, $arduino);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('app_ardiuno_index');
+            return $this->redirectToRoute('app_arduino_index');
         }
 
         return [
@@ -85,12 +81,12 @@ class ArdiunoController extends AbstractController
     }
 
     /**
-     * @Route("/{ardiuno}/verwijderen", methods={"GET", "DELETE"})
-     * @param Ardiuno $ardiuno
+     * @Route("/{arduino}/verwijderen", methods={"GET", "DELETE"})
+     * @param Arduino $arduino
      */
-    public function delete(Ardiuno $ardiuno)
+    public function delete(Arduino $arduino)
     {
-        $this->denyAccessUnlessGranted('delete', $ardiuno);
+        $this->denyAccessUnlessGranted('delete', $arduino);
 
     }
 }

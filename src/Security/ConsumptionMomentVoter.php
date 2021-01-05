@@ -34,14 +34,22 @@ class ConsumptionMomentVoter extends Voter
      */
     protected function voteOnAttribute($attribute, $subject, TokenInterface $token): bool
     {
-        $user = $token->getUser();
+        $activeUser = $token->getUser();
 
-        if (!$user instanceof User) {
+        if (!$activeUser instanceof User) {
             return false;
         }
 
-        if ($subject->getUser() !== $user) {
+        if ($activeUser->getArduino() === null) {
             return false;
+        }
+
+        if ($attribute !== 'new') {
+            $subjectUser = $subject->getUser();
+
+            if ($subjectUser !== $activeUser) {
+                return false;
+            }
         }
 
         return true;
