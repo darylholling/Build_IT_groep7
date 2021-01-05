@@ -387,7 +387,7 @@
 {%- endblock form_label_class %}
 
 {%- block input_class -%}
-    {% if form.vars.errors|length %}border-red border-1{% endif %} appearance-none form-input block w-full md:w-full bg-gray-100
+    {% if form.vars.errors|length %}border-red border-1{% endif %} block border border-grey-light w-full p-3 rounded mb-4
 {%- endblock input_class -%}
 
 {%- block textarea_class -%}
@@ -403,7 +403,7 @@
 {%- endblock checkbox_class -%}
 
 {%- block select_class -%}
-    {% if form.vars.errors|length %}border-red border-1{% endif %} appearance-none form-select block w-full
+    {% if form.vars.errors|length %}border-red border-1{% endif %} focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md
 {%- endblock select_class -%}
 
 {%- block input_group_class -%}

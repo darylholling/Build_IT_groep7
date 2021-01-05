@@ -21,7 +21,7 @@ class ConsumptionMomentType extends AbstractType
     {
         $builder
             ->add('dateTime', TimeType::class, [
-                'label' => 'E-mailadres',
+                'label' => 'Tijd',
                 'input' => 'datetime',
                 'widget' => 'choice',
             ]);
