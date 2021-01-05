@@ -403,7 +403,7 @@
 {%- endblock checkbox_class -%}
 
 {%- block select_class -%}
-    {% if form.vars.errors|length %}border-red border-1{% endif %} appearance-none form-select block w-full
+    {% if form.vars.errors|length %}border-red border-1{% endif %} focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md
 {%- endblock select_class -%}
 
 {%- block input_group_class -%}

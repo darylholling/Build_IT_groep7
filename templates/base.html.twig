@@ -14,7 +14,7 @@
 <body>
 {% if app.user %}
     <nav class="bg-gray-800">
-        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div class="max-w-7xl w-1/2 mx-auto px-2 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16">
                 <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
                     <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
@@ -33,7 +33,7 @@
                         </svg>
                     </button>
                 </div>
-                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start ">
                     <div class="hidden sm:block sm:ml-6">
                         <div class="flex space-x-4">
                             <div class="flex-shrink-0 flex items-center">
@@ -45,24 +45,23 @@
                                 <h2 class="text-3xl font-extrabold text-white">&nbsp; Build IT</h2>
                             </div>
                             <a href="{{ path('app_home_index') }}"
-                               class="bg-green-500 text-white px-3 py-2 rounded-md text-sm font-medium">
+                               class="{% if app.request.attributes.get('_route')is same as('app_home_index') %}bg-green-500 text-white{% else %} text-gray-300 hover:bg-green-700{% endif %} hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                                 Dashboard
                             </a>
-
                             <a href="{{ path('app_contact_index') }}"
-                               class="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                               class="{% if app.request.attributes.get('_route')is same as('app_contact_index') %}bg-green-500 text-white{% else %} text-gray-300 hover:bg-green-700{% endif %} hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                                 Contacten
                             </a>
                             <a href="{{ path('app_consumptionmoment_index') }}"
-                               class="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                               class="{% if app.request.attributes.get('_route')is same as('app_consumptionmoment_index') %}bg-green-500 text-white{% else %} text-gray-300 hover:bg-green-700{% endif %} hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                                 Consumptie momenten
                             </a>
                             <a href="{{ path('app_ardiuno_index') }}"
-                               class="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                               class="{% if app.request.attributes.get('_route')is same as('app_ardiuno_index') %}bg-green-500 text-white{% else %} text-gray-300 hover:bg-green-700{% endif %} hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                                 Ardiuno
                             </a>
                             <a href="{{ path('app_consumption_index') }}"
-                               class="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                               class="{% if app.request.attributes.get('_route')is same as('app_consumption_index') %}bg-green-500 text-white{% else %} text-gray-300 hover:bg-green-700{% endif %} hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                                 Consumpties
                             </a>
 
