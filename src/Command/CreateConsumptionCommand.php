@@ -3,14 +3,15 @@
 namespace App\Command;
 
 use App\Manager\ConsumptionManager;
-use DateTime;
 use Exception;
+use Padam87\CronBundle\Annotation\Job;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class CreateConsumptionCommand
+ * @Job()
  */
 class CreateConsumptionCommand extends Command
 {

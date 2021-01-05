@@ -1,5 +1,6 @@
 App\Entity\Contact:
   contact_1:
     email: daryl_holling@hotmail.com
+    salutation: 'Daryl'
     user: '@user_daryl'
 

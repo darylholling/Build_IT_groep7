@@ -4,14 +4,11 @@ namespace App\Manager;
 
 use App\Entity\Consumption;
 use App\Entity\User;
-use App\Helper\DelayStampHelper;
-use App\Message\ConsumptionNotificationMessage;
 use App\Message\NotifyContactsMessage;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -89,12 +86,15 @@ class ConsumptionManager
         if ($response->getStatusCode() === Response::HTTP_OK) {
             $consumption->setArdiunoNotified(true);
 
-            $this->messageBus->dispatch(new Envelope(
-                new NotifyContactsMessage($consumption->getId()), [
-                    (new DelayStampHelper)(new DateTime('+15 minute'))
-                ]
-            ));
+            $this->messageBus->dispatch(new NotifyContactsMessage($consumption->getId()));
+//            $this->messageBus->dispatch(new Envelope(
+//                new NotifyContactsMessage($consumption->getId()), [
+//                    (new DelayStampHelper)(new DateTime('+15 minute'))
+//                ]
+//            ));
         }
+
+        $consumption->setResponseStatusCode($response->getStatusCode());
 
         $this->entityManager->flush();
     }
