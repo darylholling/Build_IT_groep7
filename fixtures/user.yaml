@@ -5,4 +5,10 @@ App\Entity\User:
     email: daryl@test.nl
     username: darylholling
     password: <{hash}>
+  user_verline:
+    email: verline@test.nl
+    username: verline
+    password: <{hash}>
+
+
     ardiuno: '@ardiuno1'

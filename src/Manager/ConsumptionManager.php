@@ -79,14 +79,16 @@ class ConsumptionManager
     {
         $response = $this->httpClient->request(
             'GET',
-            $consumption->getUser()->getArdiuno()->getUrl()
+           'http://'. $consumption->getUser()->getArdiuno()->getUrl()
         );
+        dd($response->getStatusCode());
+
 
         //TODO check if below is error proof
         if ($response->getStatusCode() === Response::HTTP_OK) {
             $consumption->setArdiunoNotified(true);
 
-            $this->messageBus->dispatch(new NotifyContactsMessage($consumption->getId()));
+//            $this->messageBus->dispatch(new NotifyContactsMessage($consumption->getId()));
 //            $this->messageBus->dispatch(new Envelope(
 //                new NotifyContactsMessage($consumption->getId()), [
 //                    (new DelayStampHelper)(new DateTime('+15 minute'))

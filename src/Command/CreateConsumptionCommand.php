@@ -2,7 +2,9 @@
 
 namespace App\Command;
 
+use App\Entity\Consumption;
 use App\Manager\ConsumptionManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Padam87\CronBundle\Annotation\Job;
 use Symfony\Component\Console\Command\Command;
@@ -21,16 +23,21 @@ class CreateConsumptionCommand extends Command
      * @var ConsumptionManager
      */
     private ConsumptionManager $consumptionManager;
+    /**
+     * @var EntityManagerInterface
+     */
+    private EntityManagerInterface $entityManager;
 
     /**
      * CreateConsumptionCommand constructor.
      * @param ConsumptionManager $consumptionManager
      */
-    public function __construct(ConsumptionManager $consumptionManager)
+    public function __construct(ConsumptionManager $consumptionManager, EntityManagerInterface $entityManager)
     {
         parent::__construct();
 
         $this->consumptionManager = $consumptionManager;
+        $this->entityManager = $entityManager;
     }
 
     /**
@@ -41,6 +48,8 @@ class CreateConsumptionCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
-        $this->consumptionManager->createConsumptions();
+        $consumption = $this->entityManager->getRepository(Consumption::class)->findAll()[0];
+        $this->consumptionManager->sendArdiunoRequest($consumption);
+//        $this->consumptionManager->createConsumptions();
     }
 }

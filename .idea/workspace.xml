@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f306049-fcd3-43c9-8fdc-b468863d4b20" name="Default Changelist" comment="Work in progress">
+      <change afterPath="$PROJECT_DIR$/translations/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixtures/user.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/fixtures/user.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/CreateConsumptionCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/CreateConsumptionCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TestController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Manager/ConsumptionManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/ConsumptionManager.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -207,6 +214,7 @@
       <workItem from="1609515775296" duration="1346000" />
       <workItem from="1609580472601" duration="12719000" />
       <workItem from="1609673359114" duration="6947000" />
+      <workItem from="1609872758877" duration="1534000" />
     </task>
     <task id="LOCAL-00001" summary="removed .env files added gitignore">
       <created>1608228003869</created>

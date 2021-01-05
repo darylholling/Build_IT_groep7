@@ -17,7 +17,7 @@ class TestController extends AbstractController
      * @Route("/", methods={"GET"})
      * @Template()
      */
-    public function index(): array
+    public function index()
     {
         $consumptionsMoments = $this->getDoctrine()->getRepository(ConsumptionMoment::class)->findBy([
             'user' => $this->getUser()
