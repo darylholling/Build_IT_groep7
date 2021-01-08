@@ -16,12 +16,12 @@ class CreateConsumptionNotificationListener
     /**
      * @var MessageBusInterface
      */
-    private MessageBusInterface $messageBus;
+    private $messageBus;
 
     /**
      * @var EntityManagerInterface
      */
-    private EntityManagerInterface $entityManager;
+    private $entityManager;
 
     /**
      * CreateConsumptionNotificationListener constructor.

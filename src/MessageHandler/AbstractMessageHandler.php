@@ -13,7 +13,7 @@ abstract class AbstractMessageHandler implements MessageHandlerInterface
     /**
      * @var EntityManagerInterface
      */
-    protected EntityManagerInterface $entityManager;
+    protected $entityManager;
 
     /**
      * AbstractMessageHandler constructor.

@@ -17,7 +17,7 @@ class NotifyContactsHandler extends AbstractMessageHandler
     /**
      * @var MailerInterface
      */
-    private MailerInterface $mailer;
+    private $mailer;
 
     /**
      * NotifyContactsHandler constructor.

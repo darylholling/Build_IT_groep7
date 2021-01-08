@@ -44,7 +44,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     /**
      * @var RouterInterface
      */
-    private RouterInterface $router;
+    private $router;
 
     /**
      * LoginFormAuthenticatorOld constructor.

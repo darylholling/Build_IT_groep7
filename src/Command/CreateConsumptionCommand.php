@@ -20,7 +20,7 @@ class CreateConsumptionCommand extends Command
     /**
      * @var ConsumptionManager
      */
-    private ConsumptionManager $consumptionManager;
+    private $consumptionManager;
 
     /**
      * CreateConsumptionCommand constructor.

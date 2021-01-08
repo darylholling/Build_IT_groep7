@@ -21,17 +21,17 @@ class ConsumptionManager
     /**
      * @var EntityManagerInterface
      */
-    private EntityManagerInterface $entityManager;
+    private $entityManager;
 
     /**
      * @var HttpClientInterface
      */
-    private HttpClientInterface $httpClient;
+    private $httpClient;
 
     /**
      * @var MessageBusInterface
      */
-    private MessageBusInterface $messageBus;
+    private $messageBus;
 
     /**
      * ConsumptionManager constructor.
@@ -80,7 +80,7 @@ class ConsumptionManager
     {
         $response = $this->httpClient->request(
             'GET',
-            $consumption->getUser()->getArduino()->getUrl() . '&?consumption=1'
+            $consumption->getUser()->getActiveArduino()->getUrl()
         );
 
         //TODO check if below is error proof

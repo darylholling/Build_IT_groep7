@@ -17,7 +17,7 @@ class ConsumptionNotificationHandler extends AbstractMessageHandler
     /**
      * @var ConsumptionManager
      */
-    private ConsumptionManager $consumptionManager;
+    private $consumptionManager;
 
     /**
      * ConsumptionNotificationHandler constructor.

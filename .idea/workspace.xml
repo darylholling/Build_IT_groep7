@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f306049-fcd3-43c9-8fdc-b468863d4b20" name="Default Changelist" comment="Improved arduino &lt;=&gt; user relation logic. Added paginator" />
+    <list default="true" id="2f306049-fcd3-43c9-8fdc-b468863d4b20" name="Default Changelist" comment="configuration files">
+      <change beforePath="$PROJECT_DIR$/src/Command/CreateConsumptionCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/CreateConsumptionCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ConsumptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConsumptionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventListener/CreateConsumptionNotificationListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/CreateConsumptionNotificationListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Manager/ConsumptionManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/ConsumptionManager.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -215,7 +220,7 @@
       <workItem from="1609869615298" duration="5381000" />
       <workItem from="1609955442301" duration="340000" />
       <workItem from="1610040973460" duration="7998000" />
-      <workItem from="1610095845974" duration="8167000" />
+      <workItem from="1610095845974" duration="8433000" />
     </task>
     <task id="LOCAL-00001" summary="removed .env files added gitignore">
       <created>1608228003869</created>
@@ -294,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610110458249</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="configuration files">
+      <created>1610110574015</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1610110574015</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,6 +332,7 @@
     <MESSAGE value="Merged styling improved logic" />
     <MESSAGE value="workinprogress" />
     <MESSAGE value="Improved arduino &lt;=&gt; user relation logic. Added paginator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved arduino &lt;=&gt; user relation logic. Added paginator" />
+    <MESSAGE value="configuration files" />
+    <option name="LAST_COMMIT_MESSAGE" value="configuration files" />
   </component>
 </project>
