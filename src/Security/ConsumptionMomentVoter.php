@@ -40,7 +40,7 @@ class ConsumptionMomentVoter extends Voter
             return false;
         }
 
-        if ($activeUser->getArduino() === null) {
+        if ($activeUser->getActiveArduino() === null) {
             return false;
         }
 

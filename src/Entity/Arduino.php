@@ -23,9 +23,16 @@ class Arduino
     private $url = '';
 
     /**
+     * @var bool|null
+     *
+     * @ORM\Column(type="boolean", nullable=true, unique=true)
+     */
+    private $active = true;
+
+    /**
      * @var User
      *
-     * @ORM\OneToOne(targetEntity="App\Entity\User", mappedBy="arduino")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="arduino")
      */
     private $user;
 
@@ -59,5 +66,21 @@ class Arduino
     public function setUser(User $user): void
     {
         $this->user = $user;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function isActive(): ?bool
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param bool|null $active
+     */
+    public function setActive(?bool $active): void
+    {
+        $this->active = $active;
     }
 }

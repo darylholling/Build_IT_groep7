@@ -20,11 +20,11 @@ class User implements UserInterface
     use IdTrait;
 
     /**
-     * @var Arduino|null
+     * @var Arduino[]|Collection
      *
-     * @ORM\OneToOne(targetEntity="App\Entity\Arduino", inversedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Arduino", mappedBy="user")
      */
-    private $arduino;
+    private $arduinos;
 
     /**
      * @var Consumption[]|Collection
@@ -87,6 +87,7 @@ class User implements UserInterface
         $this->contacts = new ArrayCollection();
         $this->consumptionMoments = new ArrayCollection();
         $this->consumptions = new ArrayCollection();
+        $this->arduinos = new ArrayCollection();
     }
 
     /**
@@ -268,16 +269,49 @@ class User implements UserInterface
     /**
      * @return Arduino|null
      */
-    public function getArduino(): ?Arduino
+    public function getActiveArduino(): ?Arduino
     {
-        return $this->arduino;
+        return $this->arduinos->filter(static function (Arduino $arduino) {
+            return $arduino->isActive();
+        })->first();
     }
 
     /**
-     * @param Arduino|null $arduino
+     * @return Arduino[]|Collection
      */
-    public function setArduino(?Arduino $arduino): void
+    public function getInactiveArduinos()
     {
-        $this->arduino = $arduino;
+        return $this->arduinos->filter(static function (Arduino $arduino) {
+            return $arduino->isActive() === false;
+        });
+    }
+
+    /**
+     * @return Arduino[]|Collection
+     */
+    public function getArduinos()
+    {
+        return $this->arduinos;
+    }
+
+    /**
+     * @param Arduino $arduino
+     */
+    public function addArduino(Arduino $arduino): void
+    {
+        if ($this->arduinos->contains($arduino) === false) {
+            $arduino->setUser($this);
+            $this->arduinos->add($arduino);
+        }
+    }
+
+    /**
+     * @param Arduino $arduino
+     */
+    public function removeArduino(Arduino $arduino): void
+    {
+        if ($this->arduinos->contains($arduino)) {
+            $this->arduinos->removeElement($arduino);
+        }
     }
 }

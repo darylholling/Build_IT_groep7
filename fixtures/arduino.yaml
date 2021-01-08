@@ -2,3 +2,4 @@ App\Entity\Arduino:
   arduino1:
 #    url: http://192.168.178.61/turnonce
     url: https://webhook.site/31aba2de-bc9e-4388-8b16-9afbca22b464
+    user: '@user_daryl'

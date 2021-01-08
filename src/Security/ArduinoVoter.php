@@ -45,6 +45,10 @@ class ArduinoVoter extends Voter
             return false;
         }
 
+        if (in_array($attribute, ['new', 'activate'], true) && $user->getActiveArduino() !== null) {
+            return false;
+        }
+
         return true;
     }
 }

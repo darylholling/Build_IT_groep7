@@ -5,9 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f306049-fcd3-43c9-8fdc-b468863d4b20" name="Default Changelist" comment="workinprogress">
+      <change afterPath="$PROJECT_DIR$/config/packages/knp_paginator.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ReceiveConsumptionStatusController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/arduino/list_inactive.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/pagination.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Build_IT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Build_IT.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixtures/arduino.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/fixtures/arduino.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixtures/user.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/fixtures/user.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ArduinoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArduinoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ConsumptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConsumptionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ContactController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Arduino.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Arduino.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/ArduinoVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/ArduinoVoter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/ConsumptionMomentVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/ConsumptionMomentVoter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/arduino/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/arduino/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/consumption/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/consumption/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/consumption_moment/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/consumption_moment/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,6 +167,8 @@
       <path value="$PROJECT_DIR$/vendor/nelmio/alice" />
       <path value="$PROJECT_DIR$/vendor/symfony/messenger" />
       <path value="$PROJECT_DIR$/vendor/padam87/cron-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lcN9bHOf8BlWi8LdqQDX2ONHMU" />
@@ -164,7 +188,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/vendor" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/arduino" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -180,11 +204,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\templates\arduino" />
       <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\templates\bundles\TwigBundle\Exception" />
       <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\src\Security" />
       <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\src\Form" />
       <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\src\Controller" />
-      <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\src\Trait" />
@@ -217,7 +241,7 @@
       <workItem from="1609869615298" duration="5381000" />
       <workItem from="1609955442301" duration="340000" />
       <workItem from="1610040973460" duration="7998000" />
-      <workItem from="1610095845974" duration="2255000" />
+      <workItem from="1610095845974" duration="7942000" />
     </task>
     <task id="LOCAL-00001" summary="removed .env files added gitignore">
       <created>1608228003869</created>
@@ -282,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610096732984</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="workinprogress">
+      <created>1610101332579</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1610101332579</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

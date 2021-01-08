@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
+use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -19,15 +20,23 @@ class ContactController extends AbstractController
     /**
      * @Route("/", methods={"GET"})
      * @Template()
+     * @param Request $request
+     * @param PaginatorInterface $paginator
+     * @return array
      */
-    public function index(): array
+    public function index(Request $request, PaginatorInterface $paginator): array
     {
         $contacts = $this->getDoctrine()->getRepository(Contact::class)->findBy([
             'user' => $this->getUser()
         ]);
 
+        $paginator = $paginator->paginate(
+            $contacts,
+            $request->query->getInt('page', 1)
+        );
+
         return [
-            'contacts' => $contacts
+            'contacts' => $paginator
         ];
     }
 
