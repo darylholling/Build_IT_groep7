@@ -80,22 +80,22 @@ class ConsumptionManager
     {
         $response = $this->httpClient->request(
             'GET',
-            $consumption->getUser()->getArduino()->getUrl()
+            $consumption->getUser()->getArduino()->getUrl() . '&?consumption=1'
         );
 
         //TODO check if below is error proof
         if ($response->getStatusCode() === Response::HTTP_OK) {
-            $consumption->setArduinoNotified(true);
+//            $consumption->setArduinoNotified(true);
 
-            $this->messageBus->dispatch(new NotifyContactsMessage($consumption->getId()));
+//            $this->messageBus->dispatch(new NotifyContactsMessage($consumption->getId()));
 //            $this->messageBus->dispatch(new Envelope(
 //                new NotifyContactsMessage($consumption->getId()), [
 //                    (new DelayStampHelper)(new DateTime('+15 minute'))
 //                ]
 //            ));
-            $consumption->setResponseStatusCode($response->getStatusCode());
-
-            $this->entityManager->flush();
+//            $consumption->setResponseStatusCode($response->getStatusCode());
         }
+
+        $this->entityManager->flush();
     }
 }

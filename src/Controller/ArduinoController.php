@@ -87,6 +87,5 @@ class ArduinoController extends AbstractController
     public function delete(Arduino $arduino)
     {
         $this->denyAccessUnlessGranted('delete', $arduino);
-
     }
 }
