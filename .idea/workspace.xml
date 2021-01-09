@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f306049-fcd3-43c9-8fdc-b468863d4b20" name="Default Changelist" comment="configuration files">
-      <change beforePath="$PROJECT_DIR$/src/Command/CreateConsumptionCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/CreateConsumptionCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ConsumptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConsumptionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventListener/CreateConsumptionNotificationListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/CreateConsumptionNotificationListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Manager/ConsumptionManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/ConsumptionManager.php" afterDir="false" />
+    <list default="true" id="2f306049-fcd3-43c9-8fdc-b468863d4b20" name="Default Changelist" comment="PHP 7.3 compatibility">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +217,8 @@
       <workItem from="1609869615298" duration="5381000" />
       <workItem from="1609955442301" duration="340000" />
       <workItem from="1610040973460" duration="7998000" />
-      <workItem from="1610095845974" duration="8433000" />
+      <workItem from="1610095845974" duration="11633000" />
+      <workItem from="1610193516455" duration="3296000" />
     </task>
     <task id="LOCAL-00001" summary="removed .env files added gitignore">
       <created>1608228003869</created>
@@ -306,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610110574015</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="PHP 7.3 compatibility">
+      <created>1610110858722</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1610110858722</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,6 +338,7 @@
     <MESSAGE value="workinprogress" />
     <MESSAGE value="Improved arduino &lt;=&gt; user relation logic. Added paginator" />
     <MESSAGE value="configuration files" />
-    <option name="LAST_COMMIT_MESSAGE" value="configuration files" />
+    <MESSAGE value="PHP 7.3 compatibility" />
+    <option name="LAST_COMMIT_MESSAGE" value="PHP 7.3 compatibility" />
   </component>
 </project>
