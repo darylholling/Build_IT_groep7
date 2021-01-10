@@ -27,7 +27,7 @@ class ConsumptionController extends AbstractController
         ]);
 
         return [
-            'consumptions' => $consumptions
+            'consumptions' => $consumptions,
         ];
     }
 

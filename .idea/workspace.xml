@@ -5,42 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f306049-fcd3-43c9-8fdc-b468863d4b20" name="Default Changelist" comment="Work in progress">
-      <change afterPath="$PROJECT_DIR$/fixtures/arduino.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Security/AccessDeniedHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Security/ConsumptionVoter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/arduino/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error404.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/security/access_denied.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/ConsumptionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Build_IT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Build_IT.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixtures/ardiuno.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixtures/user.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/fixtures/user.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ArdiunoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArduinoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ConsumptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConsumptionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ConsumptionMomentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConsumptionMomentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ContactController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TestController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Ardiuno.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Arduino.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Consumption.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Consumption.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ConsumptionMoment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ConsumptionMoment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ArdiunoType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ArduinoType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Manager/ConsumptionManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/ConsumptionManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MessageHandler/ConsumptionNotificationHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessageHandler/ConsumptionNotificationHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/ArdiunoVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/ArduinoVoter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/ConsumptionMomentVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/ConsumptionMomentVoter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/ContactVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/ContactVoter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ardiuno/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/arduino/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ardiuno/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ardiuno/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/arduino/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ContactType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ContactType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/consumption/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/consumption/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/consumption_moment/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/consumption_moment/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/contact/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/email/notify_contact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/email/notify_contact.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,6 +158,7 @@
       <path value="$PROJECT_DIR$/vendor/nelmio/alice" />
       <path value="$PROJECT_DIR$/vendor/symfony/messenger" />
       <path value="$PROJECT_DIR$/vendor/padam87/cron-bundle" />
+      <path value="$PROJECT_DIR$/vendor/beberlei/doctrineextensions" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lcN9bHOf8BlWi8LdqQDX2ONHMU" />
@@ -243,6 +224,8 @@
       <workItem from="1609673359114" duration="13151000" />
       <workItem from="1609782158303" duration="7324000" />
       <workItem from="1609869615298" duration="1273000" />
+      <workItem from="1610063523151" duration="1259000" />
+      <workItem from="1610219404416" duration="494000" />
     </task>
     <task id="LOCAL-00001" summary="removed .env files added gitignore">
       <created>1608228003869</created>
