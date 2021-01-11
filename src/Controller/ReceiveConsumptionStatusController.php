@@ -9,29 +9,51 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/consumptie-status-updaten")
+ * @Route("/api")
  * Class ReceiveConsumptionStatusController
  */
 class ReceiveConsumptionStatusController extends AbstractController
 {
     /**
-     * @Route("/", methods={"GET"})
+     * @Route("/consumptie-status-updaten", methods={"GET", "POST"})
      * @param Request $request
      * @return Response
      */
     public function updateStatus(Request $request): Response
     {
-        if ($request->query->has('consumption')) {
-            /** @var Consumption $consumption */
-            $consumption = $this->getDoctrine()->getRepository(Consumption::class)->find($request->query->get('consumption'));
+        $consumptionId = null;
 
-            $consumption->setTaken(true);
+        if ($request->getMethod() === Request::METHOD_GET) {
+            if ($request->query->has('consumption') === false) {
+                return new Response('The request does not contain query key consumption', Response::HTTP_BAD_REQUEST);
+            }
 
-            $this->getDoctrine()->getManager()->flush();
-
-            return new Response('success', Response::HTTP_OK);
+            $consumptionId = $request->query->get('consumption');
         }
 
-        return new Response('error', Response::HTTP_BAD_REQUEST);
+        if ($request->getMethod() === Request::METHOD_POST) {
+            if ($request->request->has('consumption') === false) {
+                return new Response('The request does not contain request param key consumption', Response::HTTP_BAD_REQUEST);
+            }
+
+            $consumptionId = $request->request->get('consumption');
+        }
+
+        if ($consumptionId === null) {
+            return new Response(sprintf('Request method %s is not allowed', $request->getMethod()), Response::HTTP_BAD_REQUEST);
+        }
+
+        /** @var Consumption $consumption */
+        $consumption = $this->getDoctrine()->getRepository(Consumption::class)->find($consumptionId);
+
+        if ($consumption === null) {
+            return new Response('no record found', Response::HTTP_NO_CONTENT);
+        }
+
+        $consumption->setTaken(true);
+
+        $this->getDoctrine()->getManager()->flush();
+
+        return new Response(sprintf('Status successfully updated for consumption using id %s', $consumptionId), Response::HTTP_OK);
     }
 }
