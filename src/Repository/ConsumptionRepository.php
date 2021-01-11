@@ -14,9 +14,10 @@ use Doctrine\ORM\QueryBuilder;
 class ConsumptionRepository extends EntityRepository
 {
     /**
+     * @param User $user
      * @return array
      */
-    public function findConsumptionsForToday(User $user)
+    public function findConsumptionsForToday(User $user): array
     {
         $dt = new DateTime();
 
@@ -26,8 +27,6 @@ class ConsumptionRepository extends EntityRepository
         $qb->andWhere('consumption.user = :user');
         $qb->setParameter('user', $user->getId());
 
-
         return $qb->getQuery()->getResult();
-
     }
 }

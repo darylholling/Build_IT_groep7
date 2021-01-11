@@ -32,6 +32,25 @@ class ConsumptionController extends AbstractController
     }
 
     /**
+     * @Route("/", methods={"GET"})
+     * @Template()
+     */
+    public function taken(): array
+    {
+        $consumptions = $this->getDoctrine()->getRepository(Consumption::class)->findBy([
+            'user' => $this->getUser()
+        ], [
+            'dateTime' => 'DESC'
+        ]);
+
+        return [
+            'consumptions' => $consumptions,
+        ];
+    }
+
+
+
+    /**
      * @Route("/{consumption}/verwijderen", methods={"GET", "DELETE"})
      * @param Consumption $consumption
      * @return RedirectResponse
