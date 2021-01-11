@@ -4,6 +4,9 @@
 .idea/httpRequests
 .idea/modules.xml
 .idea/php.xml
+.idea/WebServers.xml
+.idea/vcs.xml
+.idea/sshConfigs.xml
 *.iml
 
 ###> symfony/framework-bundle ###
