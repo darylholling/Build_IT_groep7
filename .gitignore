@@ -1,3 +1,10 @@
+.idea/**/workspace.xml
+.idea/**/dictionaries
+.idea/**/deployment.xml
+.idea/httpRequests
+.idea/modules.xml
+.idea/php.xml
+*.iml
 
 ###> symfony/framework-bundle ###
 /.env
@@ -7,7 +14,6 @@
 /public/bundles/
 /var/
 /vendor/
-/.idea/workspace.xml
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
