@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f306049-fcd3-43c9-8fdc-b468863d4b20" name="Default Changelist" comment="Work in progress">
+    <list default="true" id="2f306049-fcd3-43c9-8fdc-b468863d4b20" name="Default Changelist" comment="PHP 7.3 compatibility">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ConsumptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConsumptionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ContactType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ContactType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ConsumptionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ConsumptionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/consumption_moment/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/consumption_moment/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,10 +143,8 @@
       <path value="$PROJECT_DIR$/vendor/nelmio/alice" />
       <path value="$PROJECT_DIR$/vendor/symfony/messenger" />
       <path value="$PROJECT_DIR$/vendor/padam87/cron-bundle" />
-      <path value="$PROJECT_DIR$/vendor/beberlei/doctrineextensions" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
-      <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lcN9bHOf8BlWi8LdqQDX2ONHMU" />
@@ -165,8 +158,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/vendor" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -182,11 +180,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\templates\arduino" />
       <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\templates\bundles\TwigBundle\Exception" />
       <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\src\Security" />
       <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\src\Form" />
       <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\src\Controller" />
-      <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\gebruiker\PhpstormProjects\Build_IT\src\Trait" />
@@ -216,9 +214,11 @@
       <workItem from="1609580472601" duration="12719000" />
       <workItem from="1609673359114" duration="13151000" />
       <workItem from="1609782158303" duration="7324000" />
-      <workItem from="1609869615298" duration="1273000" />
-      <workItem from="1610063523151" duration="1259000" />
-      <workItem from="1610219404416" duration="494000" />
+      <workItem from="1609869615298" duration="5381000" />
+      <workItem from="1609955442301" duration="340000" />
+      <workItem from="1610040973460" duration="7998000" />
+      <workItem from="1610095845974" duration="11633000" />
+      <workItem from="1610193516455" duration="3296000" />
     </task>
     <task id="LOCAL-00001" summary="removed .env files added gitignore">
       <created>1608228003869</created>
@@ -269,7 +269,49 @@
       <option name="project" value="LOCAL" />
       <updated>1609686512212</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Merged styling improved logic">
+      <created>1609870933600</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1609870933600</updated>
+    </task>
+    <task id="LOCAL-00009" summary="workinprogress">
+      <created>1610096732984</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1610096732984</updated>
+    </task>
+    <task id="LOCAL-00010" summary="workinprogress">
+      <created>1610101332579</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1610101332579</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Improved arduino &lt;=&gt; user relation logic. Added paginator">
+      <created>1610110458249</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1610110458249</updated>
+    </task>
+    <task id="LOCAL-00012" summary="configuration files">
+      <created>1610110574015</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1610110574015</updated>
+    </task>
+    <task id="LOCAL-00013" summary="PHP 7.3 compatibility">
+      <created>1610110858722</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1610110858722</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,6 +334,11 @@
     <MESSAGE value="first entities + fixtures + form theme." />
     <MESSAGE value="uncommited files" />
     <MESSAGE value="Work in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Work in progress" />
+    <MESSAGE value="Merged styling improved logic" />
+    <MESSAGE value="workinprogress" />
+    <MESSAGE value="Improved arduino &lt;=&gt; user relation logic. Added paginator" />
+    <MESSAGE value="configuration files" />
+    <MESSAGE value="PHP 7.3 compatibility" />
+    <option name="LAST_COMMIT_MESSAGE" value="PHP 7.3 compatibility" />
   </component>
 </project>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="shared1.webstack.nl" id="5ea6db7b-8ee4-4b76-a2c1-c144e235b6ee" port="22" nameFormat="DESCRIPTIVE" username="groep7" />
+    </configs>
+  </component>
+</project>

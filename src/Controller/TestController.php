@@ -25,7 +25,6 @@ class TestController extends AbstractController
      */
     public function index(MailerInterface $mailer)
     {
-
         $contact = $this->getDoctrine()->getRepository(Contact::class)->findAll()[0];
 
         $email = (new TemplatedEmail())
@@ -40,8 +39,6 @@ class TestController extends AbstractController
         $mailer->send($email);
 
         return new Response(200, 'ok');
-//        return [
-//        ];
     }
 
     /**

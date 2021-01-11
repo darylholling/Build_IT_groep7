@@ -5,7 +5,7 @@
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="flex">
-                    <h2 class="flex-1 text-xl font-semibold">Mijn arduino</h2>
+                    <h2 class="flex-1 text-xl font-semibold">Inactieve arduino's</h2>
                     {% if app.user.activeArduino == null %}
                         <div class="ml-auto">
                             <a href="{{ path('app_arduino_new') }}"
@@ -18,13 +18,13 @@
                 <div class="flex py-8">
                     <div class>
                         <a href="{{ path('app_arduino_index') }}"
-                           class="btn bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded-l">
+                           class="btn bg-gray-500 hover:bg-green-500 text-white py-2 px-4 rounded-l">
                             Actief
                         </a>
                     </div>
                     <div>
                         <a href="{{ path('app_arduino_listinactive') }}"
-                           class="btn bg-gray-500 hover:bg-red-500 text-white py-2 px-4 rounded-r">
+                           class="btn bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded-r">
                             Inactief
                         </a>
                     </div>
@@ -44,8 +44,8 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                        <tr>
-                            {% if arduino %}
+                        {% for arduino in arduinos %}
+                            <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     {{ arduino.url }}
                                 </td>
@@ -56,21 +56,28 @@
                                         }) }}" class="mr-2">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="{{ path('app_arduino_deactivate', {
+                                        <a href="{{ path('app_arduino_activate', {
                                             arduino: arduino.id
-                                        }) }}" class="mr-2" onclick="return confirm('Wilt u de arduino echt deactiveren?')">
+                                        }) }}" class="mr-2"
+                                           onclick="return confirm('Wilt u de arduino echt activeren?')">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
                                 </td>
-                            {% else %}
+                            </tr>
+                        {% else %}
+                            <tr>
+
                                 <td>
-                                    <i>Er is geen bestaande arduino.</i>
+                                    <i>Er is geen inactieve arduino.</i>
                                 </td>
-                            {% endif %}
-                        </tr>
+                            </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
+                </div>
+                <div class="navigation flex justify-end pt-4">
+                    {{ knp_pagination_render(arduinos) }}
                 </div>
             </div>
         </div>

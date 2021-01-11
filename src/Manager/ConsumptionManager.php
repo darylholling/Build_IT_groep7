@@ -21,17 +21,17 @@ class ConsumptionManager
     /**
      * @var EntityManagerInterface
      */
-    private EntityManagerInterface $entityManager;
+    private $entityManager;
 
     /**
      * @var HttpClientInterface
      */
-    private HttpClientInterface $httpClient;
+    private $httpClient;
 
     /**
      * @var MessageBusInterface
      */
-    private MessageBusInterface $messageBus;
+    private $messageBus;
 
     /**
      * ConsumptionManager constructor.
@@ -80,22 +80,22 @@ class ConsumptionManager
     {
         $response = $this->httpClient->request(
             'GET',
-            $consumption->getUser()->getArduino()->getUrl()
+            $consumption->getUser()->getActiveArduino()->getUrl()
         );
 
         //TODO check if below is error proof
         if ($response->getStatusCode() === Response::HTTP_OK) {
-            $consumption->setArduinoNotified(true);
+//            $consumption->setArduinoNotified(true);
 
-            $this->messageBus->dispatch(new NotifyContactsMessage($consumption->getId()));
+//            $this->messageBus->dispatch(new NotifyContactsMessage($consumption->getId()));
 //            $this->messageBus->dispatch(new Envelope(
 //                new NotifyContactsMessage($consumption->getId()), [
 //                    (new DelayStampHelper)(new DateTime('+15 minute'))
 //                ]
 //            ));
-            $consumption->setResponseStatusCode($response->getStatusCode());
-
-            $this->entityManager->flush();
+//            $consumption->setResponseStatusCode($response->getStatusCode());
         }
+
+        $this->entityManager->flush();
     }
 }

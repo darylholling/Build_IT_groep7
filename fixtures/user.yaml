@@ -5,7 +5,6 @@ App\Entity\User:
     email: daryl@test.nl
     username: darylholling
     password: <{hash}>
-    arduino: '@arduino1'
   user_verline:
     email: verline@test.nl
     username: verline

@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Arduino;
+use App\Entity\User;
 use App\Form\ArduinoType;
+use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -22,8 +24,33 @@ class ArduinoController extends AbstractController
      */
     public function index(): array
     {
+        /** @var User $user */
+        $user = $this->getUser();
+
         return [
-            'arduino' => $this->getUser()->getArduino()
+            'arduino' => $user->getActiveArduino()
+        ];
+    }
+
+    /**
+     * @Route("/inactief", methods={"GET"})
+     * @Template()
+     * @param Request $request
+     * @param PaginatorInterface $paginator
+     * @return array
+     */
+    public function listInactive(Request $request, PaginatorInterface $paginator): array
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $paginator = $paginator->paginate(
+            $user->getInactiveArduinos(),
+            $request->query->getInt('page', 1)
+        );
+
+        return [
+            'arduinos' => $paginator
         ];
     }
 
@@ -36,6 +63,7 @@ class ArduinoController extends AbstractController
     public function new(Request $request)
     {
         $arduino = new Arduino();
+        $this->denyAccessUnlessGranted('new', $arduino);
         $this->getUser()->setArduino($arduino);
 
         $form = $this->createForm(ArduinoType::class, $arduino);
@@ -81,12 +109,32 @@ class ArduinoController extends AbstractController
     }
 
     /**
-     * @Route("/{arduino}/verwijderen", methods={"GET", "DELETE"})
+     * @Route("/{arduino}/activeren", methods={"GET", "DELETE"})
      * @param Arduino $arduino
+     * @return RedirectResponse
      */
-    public function delete(Arduino $arduino)
+    public function activate(Arduino $arduino): RedirectResponse
     {
-        $this->denyAccessUnlessGranted('delete', $arduino);
+        $this->denyAccessUnlessGranted('activate', $arduino);
 
+        $arduino->setActive(true);
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('app_arduino_index');
+    }
+
+    /**
+     * @Route("/{arduino}/deactiveren", methods={"GET", "DELETE"})
+     * @param Arduino $arduino
+     * @return RedirectResponse
+     */
+    public function deactivate(Arduino $arduino): RedirectResponse
+    {
+        $this->denyAccessUnlessGranted('deactivate', $arduino);
+
+        $arduino->setActive(false);
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('app_arduino_index');
     }
 }

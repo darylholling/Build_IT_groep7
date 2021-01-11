@@ -7,7 +7,8 @@
                 <div class="flex pb-4">
                     <h2 class="flex-1 text-xl font-semibold">Contacten</h2>
                     <div class="ml-auto">
-                        <a href="{{ path('app_contact_new') }}" class="btn bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+                        <a href="{{ path('app_contact_new') }}"
+                           class="btn bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
                             <i class="fas fa-plus mr-2"></i>Contact toevoegen
                         </a>
                     </div>
@@ -56,6 +57,9 @@
                         {% endfor %}
                         </tbody>
                     </table>
+                </div>
+                <div class="navigation flex justify-end pt-4">
+                    {{ knp_pagination_render(contacts) }}
                 </div>
             </div>
         </div>

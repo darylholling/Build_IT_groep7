@@ -17,7 +17,7 @@ class ConsumptionNotificationHandler extends AbstractMessageHandler
     /**
      * @var ConsumptionManager
      */
-    private ConsumptionManager $consumptionManager;
+    private $consumptionManager;
 
     /**
      * ConsumptionNotificationHandler constructor.
@@ -37,6 +37,7 @@ class ConsumptionNotificationHandler extends AbstractMessageHandler
      */
     public function __invoke(ConsumptionNotificationMessage $consumptionNotificationMessage): void
     {
+        /** @var Consumption $consumption */
         $consumption = $this->entityManager->getRepository(Consumption::class)->find($consumptionNotificationMessage->getConsumptionId());
 
         if ($consumption === null) {
