@@ -6,16 +6,15 @@
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="flex pb-4">
                     <h2 class="flex-1 text-xl font-semibold">Consumptie momenten</h2>
-                    {% if app.user.activeArduino %}
 
-                    <div class="ml-auto">
-                        <a href="{{ path('app_consumptionmoment_new') }}"
-                           class="btn bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
-                            <i class="fas fa-plus mr-2"></i>Consumptiemoment toevoegen
-                        </a>
-                    </div>
+                    {% if app.user.arduino %}
+                        <div class="ml-auto">
+                            <a href="{{ path('app_consumptionmoment_new') }}"
+                               class="btn bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+                                <i class="fas fa-plus mr-2"></i>Consumptiemoment toevoegen
+                            </a>
+                        </div>
                     {% endif %}
-
                 </div>
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                     <table class="min-w-full divide-y divide-gray-200">

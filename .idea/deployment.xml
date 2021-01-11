@@ -5,12 +5,8 @@
       <paths name="Shared1">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
-          <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$/vendor" />
-            <excludedPath local="true" path="$PROJECT_DIR$/var" />
-          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>
