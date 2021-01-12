@@ -5,8 +5,6 @@ namespace App\Repository;
 use App\Entity\User;
 use DateTime;
 use Doctrine\ORM\EntityRepository;
-use Doctrine\ORM\Query;
-use Doctrine\ORM\QueryBuilder;
 
 /**
  * Class ConsumptionRepository
@@ -29,4 +27,5 @@ class ConsumptionRepository extends EntityRepository
 
         return $qb->getQuery()->getResult();
     }
+
 }
