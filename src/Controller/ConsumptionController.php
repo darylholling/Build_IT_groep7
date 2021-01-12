@@ -59,8 +59,6 @@ class ConsumptionController extends AbstractController
         ];
     }
 
-
-
     /**
      * @Route("/{consumption}/verwijderen", methods={"GET", "DELETE"})
      * @param Consumption $consumption

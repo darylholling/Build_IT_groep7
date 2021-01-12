@@ -85,7 +85,7 @@ class ConsumptionManager
 
         //TODO check if below is error proof
         if ($response->getStatusCode() === Response::HTTP_OK) {
-//            $consumption->setArduinoNotified(true);
+            $consumption->setArduinoNotified(true);
 
 //            $this->messageBus->dispatch(new NotifyContactsMessage($consumption->getId()));
 //            $this->messageBus->dispatch(new Envelope(

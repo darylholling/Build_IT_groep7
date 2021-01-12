@@ -36,7 +36,7 @@ class ReceiveConsumptionStatusController extends AbstractController
                 return new Response('The request does not contain request param key consumption', Response::HTTP_BAD_REQUEST);
             }
 
-            $consumptionId = $request->request->get('consumption');
+            $consumptionId = (int)$request->request->get('consumption');
         }
 
         if ($consumptionId === null) {
@@ -47,7 +47,7 @@ class ReceiveConsumptionStatusController extends AbstractController
         $consumption = $this->getDoctrine()->getRepository(Consumption::class)->find($consumptionId);
 
         if ($consumption === null) {
-            return new Response('no record found', Response::HTTP_NO_CONTENT);
+            return new Response(sprintf('No consumption found for id %s', $consumptionId), Response::HTTP_NO_CONTENT);
         }
 
         $consumption->setTaken(true);
