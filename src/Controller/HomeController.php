@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Consumption;
-use DateTime;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,7 +17,6 @@ class HomeController extends AbstractController
      * @Route("/")
      * @Template()
      */
-
     public function index(): array
     {
         $consumptions = $this->getDoctrine()->getRepository(Consumption::class)->findConsumptionsForToday($this->getUser());
@@ -31,12 +29,11 @@ class HomeController extends AbstractController
             $moment = "Goedenavond";
         } else {
             $moment = "Goedenacht";
-    }
+        }
 
         return [
             'consumptions' => $consumptions,
             'moment' => $moment
         ];
     }
-
 }

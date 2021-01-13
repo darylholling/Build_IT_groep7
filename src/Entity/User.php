@@ -271,9 +271,15 @@ class User implements UserInterface
      */
     public function getActiveArduino(): ?Arduino
     {
-        return $this->arduinos->filter(static function (Arduino $arduino) {
+        $arduino = $this->arduinos->filter(static function (Arduino $arduino) {
             return $arduino->isActive();
         })->first();
+
+        if ($arduino === false) {
+            return null;
+        }
+
+        return $arduino;
     }
 
     /**

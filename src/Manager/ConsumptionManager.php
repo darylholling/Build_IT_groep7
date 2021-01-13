@@ -4,11 +4,10 @@ namespace App\Manager;
 
 use App\Entity\Consumption;
 use App\Entity\User;
-use App\Message\NotifyContactsMessage;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -73,6 +72,45 @@ class ConsumptionManager
     }
 
     /**
+     * @param int $userId
+     * @param OutputInterface $output
+     * @return void
+     */
+    public function createSingleConsumption(int $userId, OutputInterface $output): void
+    {
+        /** @var User $user */
+        $user = $this->entityManager->getRepository(User::class)->find($userId);
+
+        if ($user === null) {
+            if ($output->isVerbose()) {
+                $output->writeln(sprintf('No user found for id %s', $userId));
+            }
+
+            return;
+        }
+
+        if ($user->getActiveArduino() === null) {
+            if ($output->isVerbose()) {
+                $output->writeln(sprintf('No active arduino found for user %s', $user->getId()));
+            }
+
+            return;
+        }
+
+        $consumption = new Consumption();
+        $consumption->setUser($user);
+        $consumption->setDateTime(new DateTime());
+
+        $this->entityManager->persist($consumption);
+
+        $this->entityManager->flush();
+
+        if ($output->isVerbose()) {
+            $output->writeln(sprintf('Consumption with id %s created', $consumption->getId()));
+        }
+    }
+
+    /**
      * @param Consumption $consumption
      * @throws TransportExceptionInterface
      */
@@ -83,18 +121,17 @@ class ConsumptionManager
             $consumption->getUser()->getActiveArduino()->getUrl()
         );
 
-        //TODO check if below is error proof
-        if ($response->getStatusCode() === Response::HTTP_OK) {
+        //TODO check if we can get response to make sure arduino is reachable
+//        if ($response->getStatusCode() === Response::HTTP_OK) {
             $consumption->setArduinoNotified(true);
 
-//            $this->messageBus->dispatch(new NotifyContactsMessage($consumption->getId()));
 //            $this->messageBus->dispatch(new Envelope(
 //                new NotifyContactsMessage($consumption->getId()), [
 //                    (new DelayStampHelper)(new DateTime('+15 minute'))
 //                ]
 //            ));
 //            $consumption->setResponseStatusCode($response->getStatusCode());
-        }
+//        }
 
         $this->entityManager->flush();
     }

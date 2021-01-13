@@ -10,10 +10,10 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Class CreateConsumptionCommand
+ * Class CreateConsumptionsCommand
  * @Job()
  */
-class CreateConsumptionCommand extends Command
+class CreateConsumptionsCommand extends Command
 {
     protected static $defaultName = 'app:create-consumptions';
 
@@ -23,7 +23,7 @@ class CreateConsumptionCommand extends Command
     private $consumptionManager;
 
     /**
-     * CreateConsumptionCommand constructor.
+     * CreateConsumptionsCommand constructor.
      * @param ConsumptionManager $consumptionManager
      */
     public function __construct(ConsumptionManager $consumptionManager)

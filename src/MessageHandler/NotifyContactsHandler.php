@@ -3,11 +3,14 @@
 namespace App\MessageHandler;
 
 use App\Entity\Consumption;
+use App\Entity\User;
 use App\Message\NotifyContactsMessage;
 use Doctrine\ORM\EntityManagerInterface;
 use RuntimeException;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Address;
 
 /**
  * Class NotifyContactsHandler
@@ -33,6 +36,7 @@ class NotifyContactsHandler extends AbstractMessageHandler
 
     /**
      * @param NotifyContactsMessage $notifyContactsMessage
+     * @throws TransportExceptionInterface
      */
     public function __invoke(NotifyContactsMessage $notifyContactsMessage)
     {
@@ -46,24 +50,30 @@ class NotifyContactsHandler extends AbstractMessageHandler
             return;
         }
 
-        //TODO fix sendmail
-//        $consumption->setContactsNotified(true);
-//        $this->entityManager->flush();
+        /** @var User $user */
+        $user = $consumption->getUser();
 
-//        dd($consumption->getUser());
-//        return;
+        if ($user->getContacts()->isEmpty()) {
+            return;
+        }
 
-//        foreach ($consumption->getUser()->getContacts() as $contact) {
-//            $email = (new TemplatedEmail())
-//                ->from('noreply@buildit.com')
-//                ->addTo(new Address($contact->getEmail(), $contact->getSalutation()))
-//                ->subject('Medicatie niet ingenomen')
-//                ->htmlTemplate('email/notify_contact.html.twig')
-//                ->context([
-//                    'contact' => $contact
-//                ]);
-//
-//            $this->mailer->send($email);
-//        }
+        $emails = [];
+
+        foreach ($user->getContacts() as $contact) {
+            $email = (new TemplatedEmail())
+                ->from('noreply@darylholling.nl')
+                ->addTo(new Address($contact->getEmail(), $contact->getSalutation()))
+                ->subject('Medicatie niet ingenomen')
+                ->htmlTemplate('email/notify_contact.html.twig')
+                ->context([
+                    'contact' => $contact
+                ]);
+
+            $emails[] = $email;
+        }
+
+        foreach ($emails as $email) {
+            $this->mailer->send($email);
+        }
     }
 }
