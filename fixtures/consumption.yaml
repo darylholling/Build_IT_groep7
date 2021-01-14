@@ -6,3 +6,10 @@ App\Entity\Consumption:
     contactsNotified: 0
 
 
+  contact_daryl_{2..10}:
+    user: '@user_daryl'
+    dateTime: <dateTime()>
+    taken: 1
+    contactsNotified: 0
+
+
