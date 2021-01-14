@@ -25,39 +25,30 @@ class ConsumptionController extends AbstractController
      */
     public function index(Request $request, PaginatorInterface $paginator): array
     {
-        $consumptions = $this->getDoctrine()->getRepository(Consumption::class)->findBy([
-            'user' => $this->getUser()
-        ], [
-            'dateTime' => 'DESC'
-        ]);
-
-        $consumptions = $paginator->paginate(
-            $consumptions,
-            $request->query->getInt('page', 1),
-            5
-        );
-
-        return [
-            'consumptions' => $consumptions,
-        ];
+        return $this->showTemplate($request, $paginator);
     }
 
     /**
      * @Route("/ingenomen-consumpties", methods={"GET"})
      * @Template()
+     * @param Request $request
+     * @param PaginatorInterface $paginator
+     * @return array
      */
-    public function taken(): array
+    public function taken(Request $request, PaginatorInterface $paginator): array
     {
-        $consumptions = $this->getDoctrine()->getRepository(Consumption::class)->findBy([
-            'user' => $this->getUser(),
-            'taken' => 1,
-        ], [
-            'dateTime' => 'DESC'
-        ]);
-
-        return [
-            'consumptions' => $consumptions,
-        ];
+        return $this->showTemplate($request, $paginator, 1);
+    }
+    /**
+     * @Route("/vergeten-consumpties", methods={"GET"})
+     * @Template()
+     * @param Request $request
+     * @param PaginatorInterface $paginator
+     * @return array
+     */
+    public function forgotten(Request $request, PaginatorInterface $paginator): array
+    {
+        return $this->showTemplate($request, $paginator, 0);
     }
 
     /**
@@ -73,5 +64,29 @@ class ConsumptionController extends AbstractController
         $this->getDoctrine()->getManager()->flush();
 
         return $this->redirectToRoute('app_consumption_index');
+    }
+
+    private function showTemplate(Request $request, PaginatorInterface $paginator, bool $taken = null): array
+    {
+        $findByParams = [
+            'user' => $this->getUser()
+        ];
+
+        if(null !== $taken) {
+            $findByParams['taken'] = $taken;
+        }
+
+        $consumptions = $this->getDoctrine()->getRepository(Consumption::class)->findBy($findByParams, [
+            'dateTime' => 'DESC'
+        ]);
+
+        $consumptions = $paginator->paginate(
+            $consumptions,
+            $request->query->getInt('page', 1),
+            5
+        );
+        return [
+            'consumptions' => $consumptions,
+        ];
     }
 }
