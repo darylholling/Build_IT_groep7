@@ -40,4 +40,5 @@ security:
     access_control:
         - { path: ^/inloggen, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/registreren, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/reset-password, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, role: ROLE_USER }
