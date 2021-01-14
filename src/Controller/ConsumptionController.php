@@ -43,13 +43,14 @@ class ConsumptionController extends AbstractController
     }
 
     /**
-     * @Route("/", methods={"GET"})
+     * @Route("/ingenomen-consumpties", methods={"GET"})
      * @Template()
      */
     public function taken(): array
     {
         $consumptions = $this->getDoctrine()->getRepository(Consumption::class)->findBy([
-            'user' => $this->getUser()
+            'user' => $this->getUser(),
+            'taken' => 1,
         ], [
             'dateTime' => 'DESC'
         ]);

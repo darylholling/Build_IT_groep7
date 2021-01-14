@@ -21,11 +21,13 @@ class HomeController extends AbstractController
     {
         $consumptions = $this->getDoctrine()->getRepository(Consumption::class)->findConsumptionsForToday($this->getUser());
 
-        if(date('H') >= 5 && date('H') < 12) {
+        $date = date('H');
+
+        if($date >= 5 && $date < 12) {
             $moment = "Goedemorgen";
-        } if (date('H') >= 12 && date('H') < 18) {
+        } else if ($date >= 12 && $date < 18) {
             $moment = "Goedemiddag";
-        } if (date('H') >= 18 && date('H')<= 23 ) {
+        } else if ($date >= 18 && $date <= 23 ) {
             $moment = "Goedenavond";
         } else {
             $moment = "Goedenacht";
