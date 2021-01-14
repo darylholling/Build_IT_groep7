@@ -23,6 +23,7 @@ class ConsumptionMomentController extends AbstractController
      */
     public function index(): array
     {
+        //TODO fix paginator
         $consumptionMoments = $this->getDoctrine()->getRepository(ConsumptionMoment::class)->findBy([
             'user' => $this->getUser()
         ]);
@@ -50,8 +51,8 @@ class ConsumptionMomentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $this->getDoctrine()->getManager()->persist($consumptionMoment);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('app_consumptionmoment_index');
