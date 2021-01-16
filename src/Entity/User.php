@@ -20,9 +20,17 @@ class User implements UserInterface
     use IdTrait;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=false)
+     * @Assert\LessThanOrEqual(value="6", message="Input can not be higher than {{ value }}")
+     */
+    private $consumptionQuantity = 0;
+
+    /**
      * @var Arduino[]|Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Arduino", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Arduino", mappedBy="user", cascade="persist")
      */
     private $arduinos;
 
@@ -43,7 +51,7 @@ class User implements UserInterface
     /**
      * @var Contact[]|Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Contact", mappedBy="user")
      */
     private $contacts;
 
@@ -306,8 +314,8 @@ class User implements UserInterface
     public function addArduino(Arduino $arduino): void
     {
         if ($this->arduinos->contains($arduino) === false) {
-            $arduino->setUser($this);
             $this->arduinos->add($arduino);
+            $arduino->setUser($this);
         }
     }
 
@@ -319,5 +327,21 @@ class User implements UserInterface
         if ($this->arduinos->contains($arduino)) {
             $this->arduinos->removeElement($arduino);
         }
+    }
+
+    /**
+     * @return int
+     */
+    public function getConsumptionQuantity(): int
+    {
+        return $this->consumptionQuantity;
+    }
+
+    /**
+     * @param int $consumptionQuantity
+     */
+    public function setConsumptionQuantity(int $consumptionQuantity): void
+    {
+        $this->consumptionQuantity = $consumptionQuantity;
     }
 }

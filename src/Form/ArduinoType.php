@@ -6,6 +6,8 @@ use App\Entity\Arduino;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -23,6 +25,13 @@ class ArduinoType extends AbstractType
             ->add('url', TextType::class, [
                 'label' => 'Url',
             ]);
+
+        $builder->addEventListener(FormEvents::SUBMIT, static function (FormEvent $event) {
+            /** @var Arduino $arduino */
+            $arduino = $event->getData();
+
+            $arduino->setActive(true);
+        });
     }
 
     /**

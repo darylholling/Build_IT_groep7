@@ -3,12 +3,14 @@
 namespace App\Entity;
 
 use App\Traits\IdTrait;
+use App\Validator\Constraints\UserArduino;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Arduino
  * @ORM\Entity()
+ * @UserArduino()
  */
 class Arduino
 {
@@ -25,9 +27,9 @@ class Arduino
     /**
      * @var bool|null
      *
-     * @ORM\Column(type="boolean", nullable=true, unique=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
-    private $active = true;
+    private $active = false;
 
     /**
      * @var User
@@ -53,9 +55,9 @@ class Arduino
     }
 
     /**
-     * @return User
+     * @return User|null
      */
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }

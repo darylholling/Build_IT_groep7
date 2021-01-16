@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\ConsumptionMoment;
 use App\Form\ConsumptionMomentType;
-use App\Form\ContactType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -52,8 +51,9 @@ class ConsumptionMomentController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->persist($consumptionMoment);
-
             $this->getDoctrine()->getManager()->flush();
+
+            //hierna
 
             return $this->redirectToRoute('app_consumptionmoment_index');
         }

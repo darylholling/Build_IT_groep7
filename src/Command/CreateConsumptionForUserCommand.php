@@ -2,7 +2,9 @@
 
 namespace App\Command;
 
+use App\Entity\User;
 use App\Manager\ConsumptionManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Padam87\CronBundle\Annotation\Job;
 use Symfony\Component\Console\Command\Command;
@@ -23,14 +25,21 @@ class CreateConsumptionForUserCommand extends Command
     private $consumptionManager;
 
     /**
+     * @var EntityManagerInterface
+     */
+    private $entityManager;
+
+    /**
      * CreateConsumptionsCommand constructor.
      * @param ConsumptionManager $consumptionManager
+     * @param EntityManagerInterface $entityManager
      */
-    public function __construct(ConsumptionManager $consumptionManager)
+    public function __construct(ConsumptionManager $consumptionManager, EntityManagerInterface $entityManager)
     {
         parent::__construct();
 
         $this->consumptionManager = $consumptionManager;
+        $this->entityManager = $entityManager;
     }
 
     /**
@@ -49,8 +58,16 @@ class CreateConsumptionForUserCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
-        $userId = $input->getArgument('userId');
+        $user = $this->entityManager->getRepository(User::class)->find($input->getArgument('userId'));
 
-        $this->consumptionManager->createSingleConsumption($userId, $output);
+        if ($user === null) {
+            if ($output->isVerbose()) {
+                $output->writeln(sprintf('No user found for id %s', $input->getArgument('userId')));
+            }
+
+            return;
+        }
+
+        $this->consumptionManager->createSingleConsumption($user, $output);
     }
 }
