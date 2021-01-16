@@ -29,8 +29,9 @@
                 </div>
                 {% include 'consumption/partial/consumptionstable.html.twig' %}
                 <div class="flex justify-start pt-4 ml-auto">
-                    <a href='/consumpties/?pdf=true'
-                       class="btn bg-green-500 text-white py-2 px-4 rounded">
+                    <a href="{{ path('app_consumption_index', {
+                        pdf: true
+                    }) }}" class="btn bg-green-500 text-white py-2 px-4 rounded">
                         Download overzicht
                     </a>
                 </div>

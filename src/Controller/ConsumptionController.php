@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -22,13 +23,13 @@ class ConsumptionController extends AbstractController
      * @Template()
      * @param Request $request
      * @param PaginatorInterface $paginator
-     * @return array
+     * @return array|Response
      */
     public function index(Request $request, PaginatorInterface $paginator)
     {
         $templateData = $this->getTemplateData($request, $paginator);
 
-        if($request->get('pdf')) {
+        if ($request->query->has('pdf')) {
             $html = $this->renderView('consumption/pdf/default.html.twig', $templateData);
             $dompdf = new Dompdf();
             $dompdf->loadHtml($html);
@@ -50,8 +51,9 @@ class ConsumptionController extends AbstractController
      */
     public function taken(Request $request, PaginatorInterface $paginator): array
     {
-        return $this->getTemplateData($request, $paginator, 1);
+        return $this->getTemplateData($request, $paginator, true);
     }
+
     /**
      * @Route("/vergeten-consumpties", methods={"GET"})
      * @Template()
@@ -61,7 +63,7 @@ class ConsumptionController extends AbstractController
      */
     public function forgotten(Request $request, PaginatorInterface $paginator): array
     {
-        return $this->getTemplateData($request, $paginator,0);
+        return $this->getTemplateData($request, $paginator, false);
     }
 
     /**
@@ -85,14 +87,14 @@ class ConsumptionController extends AbstractController
             'user' => $this->getUser()
         ];
 
-        if(null !== $taken) {
+        if (null !== $taken) {
             $findByParams['taken'] = $taken;
         }
 
         $consumptions = $this->getDoctrine()->getRepository(Consumption::class)->findBy($findByParams, [
             'dateTime' => 'DESC'
         ]);
-        if(!$request->query->getBoolean('pdf')) {
+        if (!$request->query->getBoolean('pdf')) {
             $consumptions = $paginator->paginate(
                 $consumptions,
                 $request->query->getInt('page', 1),
