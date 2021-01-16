@@ -7,7 +7,6 @@
                 <div class="flex pb-4">
                     <h2 class="flex-1 text-xl font-semibold">Consumpties</h2>
                 </div>
-                {# TODO fix below #}
                 <div class="flex py-8">
                     <div class>
                         <a href="{{ path('app_consumption_index') }}"
@@ -28,43 +27,14 @@
                         </a>
                     </div>
                 </div>
-                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
-                        <tr>
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Datum
-                            </th>
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Ingenomen
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                        {% for consumption in consumptions %}
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ consumption.dateTime|date("d-m-Y H:i") }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {% if consumption.taken %}
-                                        <span class="bg-green-500 px-4 py-1 rounded text-white">
-                                            {{ consumption.taken|boolean_readable }}
-                                        </span>
-                                    {% else %}
-                                        <span class="bg-red-500 px-4 py-1 rounded text-white">
-                                            {{ consumption.taken|boolean_readable }}
-                                        </span>
-                                    {% endif %}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+                {% include 'consumption/partial/consumptionstable.html.twig' %}
+                <div class="flex justify-start pt-4 ml-auto">
+                    <a href='/consumpties/?pdf=true'
+                       class="btn bg-green-500 text-white py-2 px-4 rounded">
+                        Download overzicht
+                    </a>
                 </div>
-                <div class="navigation flex justify-end pt-4">
+                <div class="navigation flex justify-end">
                     {{ knp_pagination_render(consumptions) }}
                 </div>
             </div>

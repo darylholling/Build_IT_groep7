@@ -84,6 +84,9 @@
     "doctrine/sql-formatter": {
         "version": "1.1.1"
     },
+    "dompdf/dompdf": {
+        "version": "v1.0.2"
+    },
     "egulias/email-validator": {
         "version": "2.1.24"
     },
@@ -138,6 +141,12 @@
     "padam87/cron-bundle": {
         "version": "v2.5.0"
     },
+    "phenx/php-font-lib": {
+        "version": "0.5.2"
+    },
+    "phenx/php-svg-lib": {
+        "version": "v0.3.3"
+    },
     "php": {
         "version": "7.4"
     },
@@ -161,6 +170,9 @@
     },
     "psr/log": {
         "version": "1.1.3"
+    },
+    "sabberworm/php-css-parser": {
+        "version": "8.3.1"
     },
     "sebastian/comparator": {
         "version": "4.0.6"

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Consumption;
+use Dompdf\Dompdf;
 use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,9 +24,21 @@ class ConsumptionController extends AbstractController
      * @param PaginatorInterface $paginator
      * @return array
      */
-    public function index(Request $request, PaginatorInterface $paginator): array
+    public function index(Request $request, PaginatorInterface $paginator)
     {
-        return $this->showTemplate($request, $paginator);
+        $templateData = $this->getTemplateData($request, $paginator);
+
+        if($request->get('pdf')) {
+            $html = $this->renderView('consumption/pdf/default.html.twig', $templateData);
+            $dompdf = new Dompdf();
+            $dompdf->loadHtml($html);
+            $dompdf->setPaper('A4', 'landscape');
+            $dompdf->render();
+            $dompdf->stream('overzicht.pdf', ['Attachment' => true]);
+            exit;
+        }
+
+        return $templateData;
     }
 
     /**
@@ -37,7 +50,7 @@ class ConsumptionController extends AbstractController
      */
     public function taken(Request $request, PaginatorInterface $paginator): array
     {
-        return $this->showTemplate($request, $paginator, 1);
+        return $this->getTemplateData($request, $paginator, 1);
     }
     /**
      * @Route("/vergeten-consumpties", methods={"GET"})
@@ -48,7 +61,7 @@ class ConsumptionController extends AbstractController
      */
     public function forgotten(Request $request, PaginatorInterface $paginator): array
     {
-        return $this->showTemplate($request, $paginator, 0);
+        return $this->getTemplateData($request, $paginator,0);
     }
 
     /**
@@ -66,7 +79,7 @@ class ConsumptionController extends AbstractController
         return $this->redirectToRoute('app_consumption_index');
     }
 
-    private function showTemplate(Request $request, PaginatorInterface $paginator, bool $taken = null): array
+    private function getTemplateData(Request $request, PaginatorInterface $paginator, bool $taken = null): array
     {
         $findByParams = [
             'user' => $this->getUser()
@@ -79,12 +92,13 @@ class ConsumptionController extends AbstractController
         $consumptions = $this->getDoctrine()->getRepository(Consumption::class)->findBy($findByParams, [
             'dateTime' => 'DESC'
         ]);
-
-        $consumptions = $paginator->paginate(
-            $consumptions,
-            $request->query->getInt('page', 1),
-            5
-        );
+        if(!$request->query->getBoolean('pdf')) {
+            $consumptions = $paginator->paginate(
+                $consumptions,
+                $request->query->getInt('page', 1),
+                5
+            );
+        }
         return [
             'consumptions' => $consumptions,
         ];
