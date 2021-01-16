@@ -28,15 +28,25 @@ class DefaultExtensionTest extends KernelTestCase
         $this->defaultExtension = $container->get(DefaultExtension::class);
     }
 
-    public function testFormatBoolean()
+    public function testFormatBooleanTrueReturnsCorrectValue()
     {
         $readableBoolean = $this->defaultExtension->formatBoolean(true);
 
         $this->assertEquals('Ja', $readableBoolean);
+    }
 
+    public function testFormatBooleanFalseReturnsCorrectValue()
+    {
         $readableBoolean = $this->defaultExtension->formatBoolean(false);
 
         $this->assertEquals('Nee', $readableBoolean);
+    }
+
+    public function testFormatBooleanReturnsString()
+    {
+        $readableBoolean = $this->defaultExtension->formatBoolean(false);
+
+        $this->assertTrue(is_string($readableBoolean));
     }
 
     protected function tearDown(): void

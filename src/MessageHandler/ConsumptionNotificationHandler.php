@@ -34,6 +34,7 @@ class ConsumptionNotificationHandler extends AbstractMessageHandler
     /**
      * @param ConsumptionNotificationMessage $consumptionNotificationMessage
      * @throws TransportExceptionInterface
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
      */
     public function __invoke(ConsumptionNotificationMessage $consumptionNotificationMessage): void
     {

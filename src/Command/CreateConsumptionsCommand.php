@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class CreateConsumptionsCommand
- * @Job()
+ * @Job(hour="00", minute="00")
  */
 class CreateConsumptionsCommand extends Command
 {

@@ -63,8 +63,12 @@ class ArduinoController extends AbstractController
     public function new(Request $request)
     {
         $arduino = new Arduino();
+
+        /** @var User $user */
+        $user = $this->getUser();
+        $user->addArduino($arduino);
+
         $this->denyAccessUnlessGranted('new', $arduino);
-        $this->getUser()->setArduino($arduino);
 
         $form = $this->createForm(ArduinoType::class, $arduino);
 

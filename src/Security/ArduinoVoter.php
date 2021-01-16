@@ -3,7 +3,6 @@
 namespace App\Security;
 
 use App\Entity\Arduino;
-use App\Entity\Contact;
 use App\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
@@ -41,11 +40,11 @@ class ArduinoVoter extends Voter
             return false;
         }
 
-        if ($subject->getUser() !== $user) {
+        if (in_array($attribute, ['new', 'activate'], true) && $user->getActiveArduino() !== null) {
             return false;
         }
 
-        if (in_array($attribute, ['new', 'activate'], true) && $user->getActiveArduino() !== null) {
+        if ($subject->getUser() !== $user) {
             return false;
         }
 
