@@ -124,7 +124,9 @@ class ConsumptionManager
     {
         $this->httpClient->request(
             'GET',
-            $consumption->getUser()->getActiveArduino()->getUrl()
+            sprintf('%s/?consumptionId=%s',
+                $consumption->getUser()->getActiveArduino()->getUrl(),
+                $consumption->getId())
         );
 
         $consumption->setArduinoNotified(true);
