@@ -3,4 +3,8 @@ App\Entity\Contact:
     email: daryl_holling@hotmail.com
     salutation: 'Daryl'
     user: '@user_daryl'
+  contact_2:
+    email: fakeverline@test.com
+    salutation: 'Veraline'
+    user: '@user_verline'
 

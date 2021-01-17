@@ -1,15 +1,24 @@
 App\Entity\Consumption:
-  contact_daryl_1:
+  contact_daryl_{1..3}:
     user: '@user_daryl'
     dateTime: <dateTime()>
     taken: 0
     contactsNotified: 0
 
-
-  contact_daryl_{2..10}:
+  contact_daryl_{4..10}:
     user: '@user_daryl'
     dateTime: <dateTime()>
     taken: 1
     contactsNotified: 0
 
+  contact_verline_{1..4}:
+    user: '@user_verline'
+    dateTime: <dateTime()>
+    taken: 1
+    contactsNotified: 0
 
+  contact_verline_{5..8}:
+    user: '@user_verline'
+    dateTime: <dateTime()>
+    taken: 0
+    contactsNotified: 0
