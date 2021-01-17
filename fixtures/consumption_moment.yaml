@@ -2,3 +2,7 @@ App\Entity\ConsumptionMoment:
   consumption_1:
     user: '@user_daryl'
     dateTime: <dateTime()>
+
+  consumption_2:
+    user: '@user_verline'
+    dateTime: <dateTime()>
