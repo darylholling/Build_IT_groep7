@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('reset_password_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <body class="bg-gray-50">
+        <div class="container mx-auto ">
+            <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+                <div class="w-full space-y-8 flex items-center justify-center">
+                    <div class="w-full lg:w-1/2 bg-white p-5 rounded shadow-md">
+                        <div class="px-8 mb-4 text-center">
+                            <h3 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Wachtwoord vergeten?</h3>
+                            <p class="mb-4 text-l text-gray-700">
+                                We kennen het allemaal, het gebeurt. Vul u email hierbeneden in en wij zullen een mail sturen met een link om u wachtwoord te herstellen.
+                            </p>
+                        </div>
+                        {{ form_start(form) }}
+                            {{ form_row(form.email) }}
+                            {{ form_row(form._token) }}
+                            <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+                                <div class="mb-6 text-center">
+                                    <button class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="button">Herstel wachtwoord</button>
+                                </div>
+                                <hr class="mb-6 border-t" />
+                                <div class="text-center">
+                                    Heeft u nog geen account?
+                                    <a class="no-underline border-b border-blue text-blue-700 hover:text-blue-900" href="{{ path('app_registration_register') }}">Maak een account!</a>
+                                </div>
+                                <div class="text-center">
+                                    Heeft u al een bestaand account?
+                                    <a class="no-underline border-b border-blue text-blue-700 hover:text-blue-900" href="{{ path('app_security_login') }}">Inloggen!</a>
+                                </div>
+                            </form>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+{% endblock %}

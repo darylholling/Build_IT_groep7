@@ -6,7 +6,6 @@
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="flex pb-4">
                     <h2 class="flex-1 text-xl font-semibold">Consumptie momenten</h2>
-
                     {% if app.user.activeArduino %}
                         <div class="ml-auto">
                             <a href="{{ path('app_consumptionmoment_new') }}"
@@ -35,33 +34,36 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                        {% for consumptionMoment in consumptionMoments %}
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ consumptionMoment.user.email }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ consumptionMoment.dateTime|date("H:i") }}
-                                </td>
-                                <td>
-                                    <div class="flex justify-end">
-                                        <a href="{{ path('app_consumptionmoment_edit', {
-                                            consumptionMoment: consumptionMoment.id
-                                        }) }}" class="mr-2">
-                                            <i class="fas fa-edit hover:text-green-500"></i>
-                                        </a>
-                                        <a href="{{ path('app_consumptionmoment_delete', {
-                                            consumptionMoment: consumptionMoment.id
-                                        }) }}" class="mr-2" onclick="return confirm('Wilt u het echt verwijderen?')">
-                                            <i class="fas fa-trash hover:text-red-500"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                        {% endfor %}
+                            {% for consumptionMoment in consumptionMoments %}
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        {{ consumptionMoment.user.email }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        {{ consumptionMoment.dateTime|date("H:i") }}
+                                    </td>
+                                    <td>
+                                        <div class="flex justify-end">
+                                            <a href="{{ path('app_consumptionmoment_edit', {
+                                                consumptionMoment: consumptionMoment.id
+                                            }) }}" class="mr-2">
+                                                <i class="fas fa-edit hover:text-green-500"></i>
+                                            </a>
+                                            <a href="{{ path('app_consumptionmoment_delete', {
+                                                consumptionMoment: consumptionMoment.id
+                                            }) }}" class="mr-2" onclick="return confirm('Wilt u het echt verwijderen?')">
+                                                <i class="fas fa-trash hover:text-red-500"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
+                {% if consumptionMoments|length < 1 %}
+                    <h2 class="mt-6 text-center text-2xl font-extrabold text-gray-900">Er zijn geen consumptie momenten ingesteld.</h2>
+                {% endif %}
             </div>
         </div>
     </div>
