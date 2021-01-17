@@ -124,7 +124,7 @@ class ConsumptionManager
     {
         $this->httpClient->request(
             'GET',
-            sprintf('%s/?consumptionId=%s',
+            sprintf('%s/?id=%s',
                 $consumption->getUser()->getActiveArduino()->getUrl(),
                 $consumption->getId())
         );
