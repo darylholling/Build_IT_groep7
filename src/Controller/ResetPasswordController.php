@@ -133,7 +133,7 @@ class ResetPasswordController extends AbstractController
         }
 
         return $this->render('reset_password/reset.html.twig', [
-            'resetForm' => $form->createView(),
+            'form' => $form->createView(),
         ]);
     }
 
@@ -164,7 +164,7 @@ class ResetPasswordController extends AbstractController
         $email = (new TemplatedEmail())
             ->from(new Address('noreply@darylholling.nl', 'Helpdesk BuildIt'))
             ->to($user->getEmail())
-            ->subject('Your password reset request')
+            ->subject('Wachtwoord herstellen BuildIt')
             ->htmlTemplate('reset_password/email.html.twig')
             ->context([
                 'resetToken' => $resetToken,
