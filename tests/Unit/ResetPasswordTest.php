@@ -64,6 +64,17 @@ class ResetPasswordTest extends KernelTestCase
      * @throws ResetPasswordExceptionInterface
      * @throws TooManyPasswordRequestsException
      */
+    public function testGenerateResetTokenUser()
+    {
+        $resetToken = $this->resetPasswordHelper->generateResetToken($this->user);
+
+        $this->assertNotNull($this->getTokenUser($resetToken ->getToken()));
+    }
+
+    /**
+     * @throws ResetPasswordExceptionInterface
+     * @throws TooManyPasswordRequestsException
+     */
     public function testGenerateResetTokenUserEquals()
     {
         $resetToken = $this->resetPasswordHelper->generateResetToken($this->user);
