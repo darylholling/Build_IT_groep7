@@ -72,6 +72,10 @@ class ConsumptionManager
 
         $results = $qb->getQuery()->getResult();
 
+        if (empty($results)) {
+            return;
+        }
+
         /** @var User $user */
         foreach ($results as $user) {
             foreach ($user->getConsumptionMoments() as $consumptionMoment) {

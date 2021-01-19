@@ -6,7 +6,6 @@ use App\Entity\User;
 use App\Manager\ConsumptionManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Padam87\CronBundle\Annotation\Job;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
