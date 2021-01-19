@@ -48,9 +48,4 @@ class DefaultExtensionTest extends KernelTestCase
 
         $this->assertTrue(is_string($readableBoolean));
     }
-
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-    }
 }

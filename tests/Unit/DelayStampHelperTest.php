@@ -12,11 +12,6 @@ use Symfony\Component\Messenger\Stamp\DelayStamp;
  */
 class DelayStampHelperTest extends KernelTestCase
 {
-    public function setUp(): void
-    {
-        self::bootKernel();
-    }
-
     public function testIfDelayStampCalculatesCorrectMilliseconds()
     {
         $fifteenMinuteDelay = new DateTime('+15 minutes');
@@ -41,10 +36,5 @@ class DelayStampHelperTest extends KernelTestCase
         $delayStampWithDelay = (new DelayStampHelper)(new DateTime());
 
         $this->assertTrue($delayStampWithDelay instanceof DelayStamp);
-    }
-
-    protected function tearDown(): void
-    {
-        parent::tearDown();
     }
 }
