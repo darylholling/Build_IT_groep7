@@ -24,6 +24,7 @@ class ConsumptionRepository extends EntityRepository
         $qb->setParameter('date', $dt->format('Y-m-d'));
         $qb->andWhere('consumption.user = :user');
         $qb->setParameter('user', $user->getId());
+        $qb->orderBy('consumption.dateTime', 'ASC');
 
         return $qb->getQuery()->getResult();
     }
