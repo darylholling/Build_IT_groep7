@@ -72,7 +72,6 @@ class NotifyContactsHandler extends AbstractMessageHandler
             $emails[] = $email;
         }
 
-        //TODO line below is important (maybe find replacement)
         if ($_ENV['APP_ENV'] === 'prod') {
             foreach ($emails as $email) {
                 $this->mailer->send($email);

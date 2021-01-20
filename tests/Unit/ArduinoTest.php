@@ -45,28 +45,7 @@ class ArduinoTest extends KernelTestCase
 
         $this->assertFalse($arduino->isActive());
     }
-
-//    TODO fix below
-//    public function testUserCanOnlyHaveOneActiveArduino()
-//    {
-//        $user = $this->user;
-//
-//        $arduino = new Arduino();
-//        $arduino->setActive(true);
-//        $arduino->setUrl('https://webhook.site/5b9ff3f7-bc82-44e3-89a0-a891a4b21313');
-//        $user->addArduino($arduino);
-//
-//        $arduino = new Arduino();
-//        $arduino->setActive(true);
-//        $arduino->setUrl('https://webhook.site/5b9ff3f7-bc82-44e3-89a0-a891a4b21313');
-//        $user->addArduino($arduino);
-//
-//        $this->entityManager->persist($arduino);
-//        $this->entityManager->flush();
-//
-//        //$this->assertNotEquals($user->getPassword(), $plainPassword);
-//    }
-
+    
     /**
      * @return User
      */
