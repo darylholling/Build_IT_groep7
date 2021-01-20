@@ -8,7 +8,7 @@ namespace App\Message;
 class ConsumptionNotificationMessage
 {
     /**
-     * ConsumptionNotificationMessage constructor.
+     * @var int
      */
     private $consumptionId;
 
