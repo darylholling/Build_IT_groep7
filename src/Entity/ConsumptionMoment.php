@@ -17,7 +17,7 @@ class ConsumptionMoment
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="contacts")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="consumptionMoments")
      */
     private $user;
 

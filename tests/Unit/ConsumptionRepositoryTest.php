@@ -38,6 +38,13 @@ class ConsumptionRepositoryTest extends KernelTestCase
         $this->user = $this->createTestUser();
     }
 
+    public function testFindConsumptionForTodayReturnsEmptyArrayIfNoResults()
+    {
+        $consumptions = $this->entityManager->getRepository(Consumption::class)->findConsumptionsForToday($this->user);
+
+        $this->assertEmpty($consumptions);
+    }
+
     public function testFindConsumptionForTodayReturnsAllConsumptionsForToday()
     {
         $this->createConsumptionForDateTime(new DateTime());
@@ -59,7 +66,7 @@ class ConsumptionRepositoryTest extends KernelTestCase
         $consumptions = $this->entityManager->getRepository(Consumption::class)->findConsumptionsForToday($this->user);
 
         $consumptionsForSecondUser = $this->entityManager->getRepository(Consumption::class)->findBy([
-           'user' => $secondTestUser->getId()
+            'user' => $secondTestUser->getId()
         ]);
 
         $this->assertEmpty($consumptionsForSecondUser);

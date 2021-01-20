@@ -34,7 +34,7 @@ class Arduino
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="arduino")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="arduinos")
      */
     private $user;
 
