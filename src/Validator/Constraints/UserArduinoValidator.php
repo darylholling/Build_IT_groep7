@@ -19,7 +19,7 @@ class UserArduinoValidator extends ConstraintValidator
      */
     public function validate($arduino, Constraint $constraint): void
     {
-        if ($arduino->isActive() && $arduino->getUser()->getActiveArduino() !== null) {
+        if ($arduino->isActive() && $arduino->getUser()->getActiveArduino() !== $arduino) {
             $this->context->buildViolation('Er mag maar 1 actieve arduino zijn per gebruiker.')
                 ->atPath('arduino')
                 ->addViolation();

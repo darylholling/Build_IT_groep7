@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\ConsumptionMoment;
 use App\Form\ConsumptionMomentType;
+use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -19,16 +20,25 @@ class ConsumptionMomentController extends AbstractController
     /**
      * @Route("/", methods={"GET"})
      * @Template()
+     * @param Request $request
+     * @param PaginatorInterface $paginator
+     * @return array
      */
-    public function index(): array
+    public function index(Request $request, PaginatorInterface $paginator): array
     {
-        //TODO fix paginator
         $consumptionMoments = $this->getDoctrine()->getRepository(ConsumptionMoment::class)->findBy([
             'user' => $this->getUser()
+        ], [
+            'dateTime' => 'ASC'
         ]);
 
+        $paginator = $paginator->paginate(
+            $consumptionMoments,
+            $request->query->getInt('page', 1)
+        );
+
         return [
-            'consumptionMoments' => $consumptionMoments
+            'consumptionMoments' => $paginator
         ];
     }
 

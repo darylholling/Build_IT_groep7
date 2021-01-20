@@ -26,11 +26,13 @@ class ArduinoType extends AbstractType
                 'label' => 'Url',
             ]);
 
-        $builder->addEventListener(FormEvents::POST_SUBMIT  , static function (FormEvent $event) {
+        $builder->addEventListener(FormEvents::POST_SUBMIT, static function (FormEvent $event) {
             /** @var Arduino $arduino */
             $arduino = $event->getData();
 
-            $arduino->setActive(true);
+            if ($arduino->isActive() === false) {
+                $arduino->setActive(true);
+            }
         });
     }
 
