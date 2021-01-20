@@ -101,6 +101,6 @@ class ConsumptionMomentController extends AbstractController
         $this->getDoctrine()->getManager()->remove($consumptionMoment);
         $this->getDoctrine()->getManager()->flush();
 
-        return $this->redirectToRoute('app_contact_index');
+        return $this->redirectToRoute('app_consumptionmoment_index');
     }
 }

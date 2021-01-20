@@ -36,14 +36,6 @@ class ResetPasswordRequest implements ResetPasswordRequestInterface
     }
 
     /**
-     * @return int|null
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    /**
      * @return object
      */
     public function getUser(): object

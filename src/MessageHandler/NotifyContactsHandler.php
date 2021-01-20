@@ -78,5 +78,7 @@ class NotifyContactsHandler extends AbstractMessageHandler
                 $this->mailer->send($email);
             }
         }
+
+        $consumption->setContactsNotified(true);
     }
 }

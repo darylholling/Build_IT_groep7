@@ -29,13 +29,6 @@ class Consumption
     private $dateTime;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $responseStatusCode;
-
-    /**
      * @var bool
      *
      * @ORM\Column(type="boolean", nullable=true)
@@ -89,14 +82,6 @@ class Consumption
     }
 
     /**
-     * @return bool
-     */
-    public function isArduinoNotified(): bool
-    {
-        return $this->arduinoNotified;
-    }
-
-    /**
      * @param bool $arduinoNotified
      */
     public function setArduinoNotified(bool $arduinoNotified): void
@@ -118,14 +103,6 @@ class Consumption
     public function setTaken(bool $taken): void
     {
         $this->taken = $taken;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isContactsNotified(): bool
-    {
-        return $this->contactsNotified;
     }
 
     /**
