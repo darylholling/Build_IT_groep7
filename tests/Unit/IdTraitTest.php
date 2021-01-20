@@ -25,13 +25,6 @@ class IdTraitTest extends KernelTestCase
      */
     private $passwordEncoder;
 
-    public function setUp(): void
-    {
-        self::bootKernel();
-
-        $container = self::$container;
-    }
-
     /**
      * @throws ReflectionException
      */
@@ -55,10 +48,5 @@ class IdTraitTest extends KernelTestCase
         }
 
         self::assertSame(count($classes), $usingTraitQuantity);
-    }
-
-    protected function tearDown(): void
-    {
-        parent::tearDown();
     }
 }

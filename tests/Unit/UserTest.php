@@ -43,9 +43,4 @@ class UserTest extends KernelTestCase
 
         $this->assertNotEquals($user->getPassword(), $plainPassword);
     }
-
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-    }
 }

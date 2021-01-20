@@ -72,6 +72,10 @@ class ConsumptionManager
 
         $results = $qb->getQuery()->getResult();
 
+        if (empty($results)) {
+            return;
+        }
+
         /** @var User $user */
         foreach ($results as $user) {
             foreach ($user->getConsumptionMoments() as $consumptionMoment) {
@@ -124,7 +128,9 @@ class ConsumptionManager
     {
         $this->httpClient->request(
             'GET',
-            $consumption->getUser()->getActiveArduino()->getUrl()
+            sprintf('%s/?id=%s',
+                $consumption->getUser()->getActiveArduino()->getUrl(),
+                $consumption->getId())
         );
 
         $consumption->setArduinoNotified(true);

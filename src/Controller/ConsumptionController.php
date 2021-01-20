@@ -81,6 +81,12 @@ class ConsumptionController extends AbstractController
         return $this->redirectToRoute('app_consumption_index');
     }
 
+    /**
+     * @param Request $request
+     * @param PaginatorInterface $paginator
+     * @param bool|null $taken
+     * @return array
+     */
     private function getTemplateData(Request $request, PaginatorInterface $paginator, bool $taken = null): array
     {
         $findByParams = [
@@ -94,6 +100,7 @@ class ConsumptionController extends AbstractController
         $consumptions = $this->getDoctrine()->getRepository(Consumption::class)->findBy($findByParams, [
             'dateTime' => 'DESC'
         ]);
+
         if (!$request->query->getBoolean('pdf')) {
             $consumptions = $paginator->paginate(
                 $consumptions,
@@ -101,6 +108,7 @@ class ConsumptionController extends AbstractController
                 5
             );
         }
+
         return [
             'consumptions' => $consumptions,
         ];

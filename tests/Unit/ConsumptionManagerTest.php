@@ -129,6 +129,7 @@ class ConsumptionManagerTest extends KernelTestCase
 
     /**
      * @throws TransportExceptionInterface
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
      */
     public function testSendArduinoRequestSetsNotifiedToTrue()
     {
@@ -150,6 +151,7 @@ class ConsumptionManagerTest extends KernelTestCase
 
     /**
      * @throws TransportExceptionInterface
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
      */
     public function testSendArduinoRequestNotifyContactMessageHasCorrectDelayStamp()
     {
@@ -160,9 +162,40 @@ class ConsumptionManagerTest extends KernelTestCase
         $this->assertTrue($consumption->isArduinoNotified());
     }
 
-    protected function tearDown(): void
+    /**
+     * @throws TransportExceptionInterface
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
+     */
+    public function testConsumptionQuantityGetsIncreasedOnArduinoRequest()
     {
-        parent::tearDown();
+        $user = $this->user;
+
+        $initialQuantity = $user->getConsumptionQuantity();
+
+        $consumption = $this->createAndGetConsumption();
+
+        $this->consumptionManager->sendArduinoRequest($consumption);
+
+        $quantityAfterArduinoRequest = $user->getConsumptionQuantity();
+
+        $this->assertNotEquals($initialQuantity, $quantityAfterArduinoRequest);
+    }
+
+    /**
+     * @throws TransportExceptionInterface
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
+     */
+    public function testConsumptionQuantityGetsResetWhenReachingSix()
+    {
+        $user = $this->user;
+
+        /** @var Consumption $consumption */
+        $consumption = $this->createAndGetConsumption();
+
+        $user->setConsumptionQuantity(5);
+        $this->consumptionManager->sendArduinoRequest($consumption);
+
+        $this->assertNotEquals(6, $user->getConsumptionQuantity());
     }
 
     /**

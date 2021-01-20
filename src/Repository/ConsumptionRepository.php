@@ -27,5 +27,4 @@ class ConsumptionRepository extends EntityRepository
 
         return $qb->getQuery()->getResult();
     }
-
 }

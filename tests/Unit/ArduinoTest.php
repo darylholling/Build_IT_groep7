@@ -83,9 +83,4 @@ class ArduinoTest extends KernelTestCase
 
         return $user;
     }
-
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-    }
 }

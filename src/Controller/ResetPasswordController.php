@@ -170,7 +170,9 @@ class ResetPasswordController extends AbstractController
                 'resetToken' => $resetToken,
             ]);
 
-        $mailer->send($email);
+        if ($_ENV['APP_ENV'] === 'prod') {
+            $mailer->send($email);
+        }
 
         return $this->redirectToRoute('app_check_email');
     }
